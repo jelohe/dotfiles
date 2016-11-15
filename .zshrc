@@ -1,3 +1,6 @@
+case $- in *i*)
+  if [ -z "$TMUX" ]; then exec tmux; fi;;
+esac
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -52,6 +55,9 @@ ZSH_THEME="agnoster"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git)
+
+# Remove c-s command in the terminal
+stty -ixon
 
 source $ZSH/oh-my-zsh.sh
 
