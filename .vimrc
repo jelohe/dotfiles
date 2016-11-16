@@ -69,3 +69,6 @@ set laststatus=2
 
 " ~~~ NerdTree ~~~
 map <C-n> :NERDTreeToggle<CR>
+
+" Ignore folders
+set wildignore+=**/node_modules
