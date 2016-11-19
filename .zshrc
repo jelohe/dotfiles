@@ -1,3 +1,5 @@
+[[ $TMUX = "" ]] && export TERM="xterm-256color"
+
 case $- in *i*)
   if [ -z "$TMUX" ]; then exec tmux; fi;;
 esac
