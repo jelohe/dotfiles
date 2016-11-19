@@ -6,4 +6,6 @@ cp .vimrc ~/
 cp .bashrc ~/
 cp .tmux.conf ~/
 cp .zshrc ~/
+cp .zshline ~/
+cp .tmuxline ~/
 ./fonts/install.sh

@@ -62,6 +62,7 @@ plugins=(git)
 stty -ixon
 
 source $ZSH/oh-my-zsh.sh
+source .zshline
 
 # User configuration
 

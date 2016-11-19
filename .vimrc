@@ -49,6 +49,9 @@ Plugin 'hail2u/vim-css3-syntax'
 Plugin 'itchyny/vim-stylus'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'ervandew/supertab'
+Plugin 'vim-airline/vim-airline'
+Plugin 'edkolev/tmuxline.vim'
+Plugin 'edkolev/promptline.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()
