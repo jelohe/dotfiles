@@ -59,21 +59,14 @@ filetype plugin indent on
 " Exclude .gitignore files
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
 
-" ~~~ LightLine ~~~
-" Theme
-let g:lightline = {
-      \ 'colorscheme': 'wombat',
-      \ }
-
-set laststatus=2
+" Ignore folders
+set wildignore+=**/node_modules
 
 " ~~~ NerdTree ~~~
 map <C-n> :NERDTreeToggle<CR>
 
 " ~~~ Powerline ~~~
+set laststatus=2
 python from powerline.vim import setup as powerline_setup
 python powerline_setup()
 python del powerline_setup
-
-" Ignore folders
-set wildignore+=**/node_modules
