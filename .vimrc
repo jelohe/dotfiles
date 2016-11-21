@@ -49,9 +49,6 @@ Plugin 'hail2u/vim-css3-syntax'
 Plugin 'itchyny/vim-stylus'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'ervandew/supertab'
-Plugin 'vim-airline/vim-airline'
-Plugin 'edkolev/tmuxline.vim'
-Plugin 'edkolev/promptline.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()
@@ -72,6 +69,11 @@ set laststatus=2
 
 " ~~~ NerdTree ~~~
 map <C-n> :NERDTreeToggle<CR>
+
+" ~~~ Powerline ~~~
+python from powerline.vim import setup as powerline_setup
+python powerline_setup()
+python del powerline_setup
 
 " Ignore folders
 set wildignore+=**/node_modules
