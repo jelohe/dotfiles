@@ -1,9 +1,6 @@
 [submodule ".vim/bundle/Vundle.vim"]
 	path = .vim/bundle/Vundle.vim
 	url = https://github.com/VundleVim/Vundle.vim
-[submodule "bash-git-prompt"]
-	path = .bash-git-prompt
-	url = https://github.com/magicmonty/bash-git-prompt
 [submodule "fonts"]
 	path = fonts
 	url = https://github.com/powerline/fonts.git
