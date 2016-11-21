@@ -70,5 +70,10 @@ set laststatus=2
 " ~~~ NerdTree ~~~
 map <C-n> :NERDTreeToggle<CR>
 
+" ~~~ Powerline ~~~
+python from powerline.vim import setup as powerline_setup
+python powerline_setup()
+python del powerline_setup
+
 " Ignore folders
 set wildignore+=**/node_modules

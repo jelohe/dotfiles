@@ -1,3 +1,5 @@
+[[ $TMUX = "" ]] && export TERM="xterm-256color"
+
 case $- in *i*)
   if [ -z "$TMUX" ]; then exec tmux; fi;;
 esac
@@ -62,6 +64,7 @@ plugins=(git)
 stty -ixon
 
 source $ZSH/oh-my-zsh.sh
+. /usr/local/lib/python2.7/dist-packages/powerline/bindings/zsh/powerline.zsh
 
 # User configuration
 
