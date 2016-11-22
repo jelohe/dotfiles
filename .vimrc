@@ -5,7 +5,7 @@ set guioptions-=L  "remove left-hand scroll bar
 
 " Theme
 syntax enable
-colorscheme monokai
+colorscheme atom-dark-256
 set guifont=Monospace\ 11
 set autoindent
 set tabstop=4 expandtab shiftwidth=4
