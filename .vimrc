@@ -24,6 +24,9 @@ nmap <Leader>ev :tabedit $MYVIMRC
 nmap <Enter> :
 nmap <c-f> /
 
+set directory=$HOME/.vimtemp//
+set backupdir=$HOME/.vimtemp//
+
 " save with ctrl+s
 nmap <c-s> :w<CR>
 imap <c-s> <Esc>:w<CR>
