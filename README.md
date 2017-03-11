@@ -8,6 +8,8 @@ git clone --recursive https://github.com/jelohe/.mycfg
 
 ## Installing
 Simply run `./install.sh`.
+
+## Extras
 #### Enabling system clipboard on vim
 Ensure that running the following command on vim returns `1`:
 
