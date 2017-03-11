@@ -25,4 +25,4 @@ The installation script will install some of the most used fonts patched with po
 This colorscheme works best if you select `solarized` color palette on your terminal emulator.
 
 #### Switching from light to dark background
-On vim you can set `:background=dark` for changing to the dark solarized colorscheme on vim and tmux, however you'll have to manually change the color palette on your terminal emulator.
+On vim you can `:set background=dark` for changing to the dark solarized colorscheme on vim and tmux, however you'll have to manually change the color palette on your terminal emulator.
