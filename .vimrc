@@ -5,8 +5,8 @@ set guioptions-=L  "remove left-hand scroll bar
 
 " Theme
 syntax enable
-colorscheme atom-dark-256
-set guifont=Monospace\ 11
+set background=light
+colorscheme solarized
 set autoindent
 set tabstop=4 expandtab shiftwidth=4
 set relativenumber
@@ -25,6 +25,7 @@ nmap <Enter> :
 nmap <c-f> /
 
 set directory=$HOME/.vimtemp//
+set backupcopy=yes
 set backupdir=$HOME/.vimtemp//
 
 " save with ctrl+s
@@ -46,12 +47,17 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'tpope/vim-surround'
-Plugin 'itchyny/lightline.vim'
 Plugin 'jelera/vim-javascript-syntax'
 Plugin 'hail2u/vim-css3-syntax'
 Plugin 'itchyny/vim-stylus'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'ervandew/supertab'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'vim-syntastic/syntastic'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'edkolev/tmuxline.vim'
+Plugin 'edkolev/promptline.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()
@@ -68,8 +74,7 @@ set wildignore+=**/node_modules
 " ~~~ NerdTree ~~~
 map <C-n> :NERDTreeToggle<CR>
 
-" ~~~ Powerline ~~~
+" ~~~ AirLine ~~~
 set laststatus=2
-python from powerline.vim import setup as powerline_setup
-python powerline_setup()
-python del powerline_setup
+let g:airline_powerline_fonts = 1
+let g:airline_theme='solarized'
