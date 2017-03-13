@@ -1,8 +1,9 @@
 #!/bin/bash
 echo -e "Starting the installation, please wait\e[31m"
 
-# Copy vim folder
+# Copy vim and tmux folder
 cp -r .vim ~/ > /dev/null
+cp -r .tmux ~/ > /dev/null
 
 # Copy config files
 cp .vimrc ~/ > /dev/null
@@ -25,7 +26,7 @@ vim -i NONE -c VundleUpdate -c quitall > /dev/null
 echo -e "\e[39mVim plugins installed\e[31m"
 
 # Install tmux plugins
-./.tmux/plugins/tpm/scripts/install_plugins.sh > /dev/null
+~/.tmux/plugins/tpm/scripts/install_plugins.sh > /dev/null
 
 echo -e "\e[39mTmux plugins installed\e[31m"
 
