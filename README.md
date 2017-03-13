@@ -7,7 +7,8 @@ git clone --recursive https://github.com/jelohe/.mycfg
 ```
 
 ## Installing
-Simply run `./install.sh`.
+Install `vim`, `zsh` and `tmux` on your system.
+Then, simply run `./install.sh`.
 
 ## Extras
 #### Enabling system clipboard on vim
