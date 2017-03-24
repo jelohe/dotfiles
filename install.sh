@@ -5,6 +5,8 @@ echo -e "Starting the installation, please wait\e[31m"
 cp -r .vim ~/ > /dev/null
 cp -r .tmux ~/ > /dev/null
 
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+
 # Copy config files
 cp .vimrc ~/ > /dev/null
 cp .bashrc ~/ > /dev/null
