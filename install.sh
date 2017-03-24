@@ -9,7 +9,6 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/mas
 
 # Copy config files
 cp .vimrc ~/ > /dev/null
-cp .bashrc ~/ > /dev/null
 cp .tmux.conf ~/ > /dev/null
 cp .zshrc ~/ > /dev/null
 

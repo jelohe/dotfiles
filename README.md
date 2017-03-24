@@ -7,10 +7,18 @@ git clone --recursive https://github.com/jelohe/.mycfg
 ```
 
 ## Installing
-Install `vim`, `zsh` and `tmux` on your system.
+Install `vim`, `zsh`, `tmux` and `curl` on your system.
 Then, simply run `./install.sh`.
 
 ## Extras
+#### Install vim 8
+```sh
+sudo add-apt-repository ppa:jonathonf/vim
+sudo apt-get update
+sudo apt-get install vim
+
+```
+
 #### Enabling system clipboard on vim
 Ensure that running the following command on vim returns `1`:
 
