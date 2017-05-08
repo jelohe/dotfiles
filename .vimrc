@@ -89,4 +89,6 @@ let g:ale_linters = {
 \}
 
 " ~~~ Theme ~~~
+set background=dark
+set background=light
 colorscheme github

@@ -14,8 +14,8 @@ cp .tmux.conf ~/ > /dev/null
 cp .zshrc ~/ > /dev/null
 
 # Copy airline files
-cp .airline.tmux ~/ > /dev/null
-cp .airline.zsh ~/ > /dev/null
+cp .tmuxline ~/ > /dev/null
+cp .zshline ~/ > /dev/null
 
 # Create backup dir for vim
 mkdir ~/.vimtemp > /dev/null
