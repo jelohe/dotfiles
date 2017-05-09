@@ -5,6 +5,8 @@ set guioptions-=L  "remove left-hand scroll bar
 
 " Theme
 syntax enable
+set background=light
+colorscheme solarized
 set autoindent
 set tabstop=4 expandtab shiftwidth=4
 set relativenumber
@@ -59,7 +61,6 @@ Plugin 'tpope/vim-commentary'
 Plugin 'w0rp/ale'
 Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
-Plugin 'acarapetis/vim-colors-github'
 
 " All of your Plugins must be added before the following line
 call vundle#end()
@@ -79,14 +80,6 @@ map <C-n> :NERDTreeToggle<CR>
 " ~~~ AirLine ~~~
 set laststatus=2
 let g:airline_powerline_fonts = 1
-let g:airline_theme='light'
+let g:airline_theme='solarized'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#show_buffers = 0
-
-" ~~~ ALE ~~~
-let g:ale_linters = {
-\    'javascript': ['eslint'],
-\}
-
-" ~~~ Theme ~~~
-colorscheme github

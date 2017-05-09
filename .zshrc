@@ -7,7 +7,9 @@ esac
 DEFAULT_USER="txus"
 
 # Path to your oh-my-zsh installation.
-export ZSH=~/.oh-my-zsh
+  export ZSH=~/.oh-my-zsh
+
+ZSH_THEME="gallois"
 
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git, docker)
@@ -19,4 +21,4 @@ stty -ixon
 source $ZSH/oh-my-zsh.sh
 
 # Load airline prompt
-source ~/.zshline
+source ~/.airline.zsh
