@@ -17,6 +17,8 @@ set timeoutlen=1000 ttimeoutlen=0
 let mapleader=","
 exe 'ino <script> <C-V>' paste#paste_cmd['i']
 let &clipboard = has('unnamedplus') ? 'unnamedplus' : 'unnamed'
+nnoremap <Leader>n :bnext<CR>
+nnoremap <Leader>p :bprev<CR>
 
 " Open .vimrc
 nmap <Leader>ev :tabedit $MYVIMRC
@@ -82,7 +84,7 @@ set laststatus=2
 let g:airline_powerline_fonts = 1
 let g:airline_theme='solarized'
 let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#show_buffers = 0
+let g:airline#extensions#tabline#show_buffers = 1
 
 " ~~~ ALE ~~~
 let g:ale_linters = {
