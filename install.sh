@@ -13,10 +13,6 @@ cp .vimrc ~/ > /dev/null
 cp .tmux.conf ~/ > /dev/null
 cp .zshrc ~/ > /dev/null
 
-# Copy airline files
-cp .airline.tmux ~/ > /dev/null
-cp .airline.zsh ~/ > /dev/null
-
 # Create backup dir for vim
 mkdir ~/.vimtemp > /dev/null
 
@@ -31,10 +27,5 @@ echo -e "\e[39mVim plugins installed\e[31m"
 ~/.tmux/plugins/tpm/scripts/install_plugins.sh > /dev/null
 
 echo -e "\e[39mTmux plugins installed\e[31m"
-
-# Install powerline fonts
-./fonts/install.sh > /dev/null
-
-echo -e "\e[39mFonts installed\e[31m"
 
 echo -e "\e[32mInstallation completed. Remember to change your terminal font and colors!"
