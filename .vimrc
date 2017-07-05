@@ -3,28 +3,21 @@ set guioptions-=m
 set guioptions-=T
 set guioptions-=L  "remove left-hand scroll bar
 
-" Theme
-syntax enable
-set background=light
-colorscheme solarized
-set autoindent
-set tabstop=4 expandtab shiftwidth=4
-set relativenumber
-:se noesckeys
-set timeoutlen=1000 ttimeoutlen=0
-
 " Keymaps
 let mapleader=","
 exe 'ino <script> <C-V>' paste#paste_cmd['i']
 let &clipboard = has('unnamedplus') ? 'unnamedplus' : 'unnamed'
-nnoremap <Leader>n :bnext<CR>
-nnoremap <Leader>p :bprev<CR>
+nnoremap <Leader>> :bnext<CR>
+nnoremap <Leader>< :bprev<CR>
+nnoremap <Leader>q :bdelete<CR>
 
 " Open .vimrc
 nmap <Leader>ev :tabedit $MYVIMRC
 
+" General remaps
 nmap <Enter> :
 nmap <c-f> /
+nnoremap <c-g> <c-]>
 
 set directory=$HOME/.vimtemp//
 set backupcopy=yes
@@ -44,47 +37,61 @@ set rtp+=~/.vim/bundle/Vundle.vim
 "Initialize and pass a path where Vundle should install plugins if necessary
 call vundle#begin('~/.vim/bundle/')
 
-" plugins
+" ~~~ Plugins ~~~
+" Misc / Extended functionality
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'scrooloose/nerdtree'
-Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'tpope/vim-surround'
+Plugin 'ludovicchabant/vim-gutentags'
+Plugin 'tpope/vim-commentary'
+Plugin 'ervandew/supertab'
+" Syntax
 Plugin 'jelera/vim-javascript-syntax'
 Plugin 'hail2u/vim-css3-syntax'
-Plugin 'itchyny/vim-stylus'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'ervandew/supertab'
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'edkolev/tmuxline.vim'
-Plugin 'edkolev/promptline.vim'
-Plugin 'tpope/vim-commentary'
-Plugin 'w0rp/ale'
 Plugin 'pangloss/vim-javascript'
+Plugin 'vim-scripts/vim-stylus'
 Plugin 'mxw/vim-jsx'
+" Themes
+Plugin 'bluz71/vim-moonfly-statusline'
+Plugin 'dracula/vim'
+" Navigation
+Plugin 'scrooloose/nerdtree'
+Plugin 'kien/ctrlp.vim'
+" Session management
+Plugin 'tpope/vim-obsession'
+Plugin 'dhruvasagar/vim-prosession'
+" Project workflow
+Plugin 'airblade/vim-gitgutter'
+Plugin 'w0rp/ale'
 
 " All of your Plugins must be added before the following line
 call vundle#end()
 
 filetype plugin indent on
 
+" Theme
+syntax enable
+colorscheme dracula
+set autoindent
+set tabstop=4 expandtab shiftwidth=4
+set relativenumber
+:se noesckeys
+set timeoutlen=1000 ttimeoutlen=0
+
+
 " ~~~ CtrlP ~~~
 " Exclude .gitignore files
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
+" Remaps
+map <Leader>b :CtrlPBuffer<CR>
+map <Leader>r :CtrlPMRU<CR>
 
 " Ignore folders
 set wildignore+=**/node_modules
 
 " ~~~ NerdTree ~~~
 map <C-n> :NERDTreeToggle<CR>
-
-" ~~~ AirLine ~~~
+" ~~~ Statusline ~~~
 set laststatus=2
-let g:airline_powerline_fonts = 1
-let g:airline_theme='solarized'
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#show_buffers = 1
 
 " ~~~ ALE ~~~
 let g:ale_linters = {
