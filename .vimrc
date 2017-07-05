@@ -44,6 +44,7 @@ Plugin 'tpope/vim-surround'
 Plugin 'ludovicchabant/vim-gutentags'
 Plugin 'tpope/vim-commentary'
 Plugin 'ervandew/supertab'
+Plugin 'arnaud-lb/vim-php-namespace' " Auto import with use on php
 " Syntax
 Plugin 'jelera/vim-javascript-syntax'
 Plugin 'hail2u/vim-css3-syntax'
@@ -54,7 +55,6 @@ Plugin 'mxw/vim-jsx'
 Plugin 'bluz71/vim-moonfly-statusline'
 Plugin 'dracula/vim'
 " Navigation
-Plugin 'scrooloose/nerdtree'
 Plugin 'kien/ctrlp.vim'
 " Session management
 Plugin 'tpope/vim-obsession'
@@ -88,8 +88,18 @@ map <Leader>r :CtrlPMRU<CR>
 " Ignore folders
 set wildignore+=**/node_modules
 
-" ~~~ NerdTree ~~~
-map <C-n> :NERDTreeToggle<CR>
+" ~~~ Netrw ~~~
+map <C-n> :Vex<CR>
+let g:netrw_banner = 0
+let g:netrw_liststyle=3
+let g:netrw_browse_split = 4
+let g:netrw_altv = 1
+let g:netrw_winsize = 15
+
+" ~~~ PHP autoimports ~~~
+autocmd FileType php nnoremap <Leader>u :call PhpInsertUse()<CR>
+let g:php_namespace_sort_after_insert = 1
+
 " ~~~ Statusline ~~~
 set laststatus=2
 
