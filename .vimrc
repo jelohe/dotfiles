@@ -14,8 +14,10 @@ nnoremap <Leader>q :bdelete<CR>
 " Open .vimrc
 nmap <Leader>ev :tabedit $MYVIMRC
 
+" General remaps
 nmap <Enter> :
 nmap <c-f> /
+nnoremap <c-g> <c-]>
 
 set directory=$HOME/.vimtemp//
 set backupcopy=yes
@@ -35,22 +37,31 @@ set rtp+=~/.vim/bundle/Vundle.vim
 "Initialize and pass a path where Vundle should install plugins if necessary
 call vundle#begin('~/.vim/bundle/')
 
-" plugins
+" ~~~ Plugins ~~~
+" Misc / Extended functionality
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'scrooloose/nerdtree'
 Plugin 'tpope/vim-surround'
+Plugin 'ludovicchabant/vim-gutentags'
+Plugin 'tpope/vim-commentary'
+Plugin 'ervandew/supertab'
+" Syntax
 Plugin 'jelera/vim-javascript-syntax'
 Plugin 'hail2u/vim-css3-syntax'
-Plugin 'itchyny/vim-stylus'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'ervandew/supertab'
-Plugin 'tpope/vim-commentary'
-Plugin 'w0rp/ale'
 Plugin 'pangloss/vim-javascript'
+Plugin 'vim-scripts/vim-stylus'
 Plugin 'mxw/vim-jsx'
-Plugin 'kien/ctrlp.vim'
-Plugin 'dracula/vim'
+" Themes
 Plugin 'bluz71/vim-moonfly-statusline'
+Plugin 'dracula/vim'
+" Navigation
+Plugin 'scrooloose/nerdtree'
+Plugin 'kien/ctrlp.vim'
+" Session management
+Plugin 'tpope/vim-obsession'
+Plugin 'dhruvasagar/vim-prosession'
+" Project workflow
+Plugin 'airblade/vim-gitgutter'
+Plugin 'w0rp/ale'
 
 " All of your Plugins must be added before the following line
 call vundle#end()
@@ -70,15 +81,15 @@ set timeoutlen=1000 ttimeoutlen=0
 " ~~~ CtrlP ~~~
 " Exclude .gitignore files
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
+" Remaps
+map <Leader>b :CtrlPBuffer<CR>
+map <Leader>r :CtrlPMRU<CR>
 
 " Ignore folders
 set wildignore+=**/node_modules
 
 " ~~~ NerdTree ~~~
 map <C-n> :NERDTreeToggle<CR>
-map <Leader>b :CtrlPBuffer<CR>
-map <Leader>r :CtrlPMRU<CR>
-
 " ~~~ Statusline ~~~
 set laststatus=2
 
