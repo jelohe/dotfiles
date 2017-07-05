@@ -3,7 +3,7 @@
 ## Cloning
 Clone the repo using the following command in order to install the git submodules:
 ```sh
-git clone --recursive https://github.com/jelohe/.mycfg
+git clone --recursive https://github.com/jelohe/dotfiles
 ```
 
 ## Installing
