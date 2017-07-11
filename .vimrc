@@ -4,12 +4,13 @@ set guioptions-=T
 set guioptions-=L  "remove left-hand scroll bar
 
 " Keymaps
-let mapleader=","
+let mapleader="\<space>"
 exe 'ino <script> <C-V>' paste#paste_cmd['i']
 let &clipboard = has('unnamedplus') ? 'unnamedplus' : 'unnamed'
 nnoremap <Leader>> :bnext<CR>
 nnoremap <Leader>< :bprev<CR>
 nnoremap <Leader>q :bdelete<CR>
+nnoremap <Leader>Q :bufdo bd<CR>
 
 " Open .vimrc
 nmap <Leader>ev :tabedit $MYVIMRC
