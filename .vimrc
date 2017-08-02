@@ -11,6 +11,8 @@ nnoremap <Leader>> :bnext<CR>
 nnoremap <Leader>< :bprev<CR>
 nnoremap <Leader>q :bdelete<CR>
 nnoremap <Leader>Q :bufdo bd<CR>
+nnoremap <Leader>j :m +1<CR>
+nnoremap <Leader>k :m -2<CR>
 
 " Open .vimrc
 nmap <Leader>ev :tabedit $MYVIMRC
@@ -42,9 +44,9 @@ call vundle#begin('~/.vim/bundle/')
 " Misc / Extended functionality
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'tpope/vim-surround'
-Plugin 'ludovicchabant/vim-gutentags'
+Plugin 'ludovicchabant/vim-gutentags' " Git diff on open files
 Plugin 'tpope/vim-commentary'
-Plugin 'ervandew/supertab'
+Plugin 'ervandew/supertab' " Smart autocomplete
 Plugin 'arnaud-lb/vim-php-namespace' " Auto import with use on php
 " Syntax
 Plugin 'jelera/vim-javascript-syntax'
@@ -57,12 +59,14 @@ Plugin 'bluz71/vim-moonfly-statusline'
 Plugin 'dracula/vim'
 " Navigation
 Plugin 'kien/ctrlp.vim'
+Plugin 'christoomey/vim-tmux-navigator'
 " Session management
 Plugin 'tpope/vim-obsession'
 Plugin 'dhruvasagar/vim-prosession'
 " Project workflow
 Plugin 'airblade/vim-gitgutter'
 Plugin 'w0rp/ale'
+Plugin 'tpope/vim-vinegar'
 
 " All of your Plugins must be added before the following line
 call vundle#end()
@@ -88,14 +92,6 @@ map <Leader>r :CtrlPMRU<CR>
 
 " Ignore folders
 set wildignore+=**/node_modules
-
-" ~~~ Netrw ~~~
-map <C-n> :Vex<CR>
-let g:netrw_banner = 0
-let g:netrw_liststyle=3
-let g:netrw_browse_split = 4
-let g:netrw_altv = 1
-let g:netrw_winsize = 15
 
 " ~~~ PHP autoimports ~~~
 autocmd FileType php nnoremap <Leader>u :call PhpInsertUse()<CR>

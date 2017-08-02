@@ -12,6 +12,7 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/mas
 cp .vimrc ~/ > /dev/null
 cp .tmux.conf ~/ > /dev/null
 cp .zshrc ~/ > /dev/null
+cp .tmux.config ~/ > /dev/null
 
 # Create backup dir for vim
 mkdir ~/.vimtemp > /dev/null
