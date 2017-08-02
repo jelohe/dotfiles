@@ -6,6 +6,13 @@ esac
 
 DEFAULT_USER="txus"
 
+zle -N zle-line-init
+zle -N zle-keymap-select
+export KEYTIMEOUT=1
+
+zle -N zle-line-init
+zle -N zle-keymap-select
+
 # Path to your oh-my-zsh installation.
   export ZSH=~/.oh-my-zsh
 
@@ -13,7 +20,7 @@ DEFAULT_USER="txus"
 ZSH_THEME="minimal"
 
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git, docker)
+plugins=(git, docker, vi-mode)
 
 # Remove c-s command in the terminal
 stty -ixon
