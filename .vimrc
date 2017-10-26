@@ -44,7 +44,6 @@ call vundle#begin('~/.vim/bundle/')
 " Misc / Extended functionality
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'tpope/vim-surround'
-Plugin 'ludovicchabant/vim-gutentags' " Git diff on open files
 Plugin 'tpope/vim-commentary'
 Plugin 'ervandew/supertab' " Smart autocomplete
 Plugin 'arnaud-lb/vim-php-namespace' " Auto import with use on php
@@ -56,10 +55,11 @@ Plugin 'vim-scripts/vim-stylus'
 Plugin 'mxw/vim-jsx'
 " Themes
 Plugin 'bluz71/vim-moonfly-statusline'
-Plugin 'dracula/vim'
+Plugin 'chriskempson/base16-vim'
 " Navigation
-Plugin 'kien/ctrlp.vim'
+Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'justinmk/vim-sneak'
 " Session management
 Plugin 'tpope/vim-obsession'
 Plugin 'dhruvasagar/vim-prosession'
@@ -75,20 +75,16 @@ filetype plugin indent on
 
 " Theme
 syntax enable
-colorscheme dracula
+colorscheme base16-eighties
 set autoindent
 set tabstop=4 expandtab shiftwidth=4
 set relativenumber
 :se noesckeys
 set timeoutlen=1000 ttimeoutlen=0
-
-
-" ~~~ CtrlP ~~~
-" Exclude .gitignore files
-let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
-" Remaps
-map <Leader>b :CtrlPBuffer<CR>
-map <Leader>r :CtrlPMRU<CR>
+"
+" ~~~ FZF ~~~
+let g:fzf_tags_command = 'ctags -R'
+nmap <c-p>  :FZF<CR>
 
 " Ignore folders
 set wildignore+=**/node_modules
@@ -103,4 +99,10 @@ set laststatus=2
 " ~~~ ALE ~~~
 let g:ale_linters = {
 \    'javascript': ['eslint'],
+\    'php': ['phpcs'],
 \}
+
+" ~~~ Snippets ~~~
+nnoremap <Leader>cl :-1read ~/.vim/snippets/php/class<CR><S-v>3j=<ESC>3fncw
+nnoremap <Leader>fn :-1read ~/.vim/snippets/php/function<CR><S-v>3j=<ESC>3fncw
+nnoremap <Leader>doc :-1read ~/.vim/snippets/php/doc<CR><S-v>5j=<ESC>jwa<space>
