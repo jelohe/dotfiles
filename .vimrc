@@ -59,7 +59,6 @@ Plugin 'chriskempson/base16-vim'
 " Navigation
 Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plugin 'christoomey/vim-tmux-navigator'
-Plugin 'justinmk/vim-sneak'
 " Session management
 Plugin 'tpope/vim-obsession'
 Plugin 'dhruvasagar/vim-prosession'
@@ -88,6 +87,7 @@ nmap <c-p>  :FZF<CR>
 
 " Ignore folders
 set wildignore+=**/node_modules
+set wildignore+=**/vendor
 
 " ~~~ PHP autoimports ~~~
 autocmd FileType php nnoremap <Leader>u :call PhpInsertUse()<CR>
