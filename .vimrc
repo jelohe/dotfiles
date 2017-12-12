@@ -100,6 +100,7 @@ set laststatus=2
 let g:ale_linters = {
 \    'javascript': ['eslint'],
 \    'php': ['phpcs'],
+\    'ruby': [],
 \}
 
 " ~~~ Snippets ~~~
