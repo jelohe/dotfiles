@@ -9,6 +9,7 @@ exe 'ino <script> <C-V>' paste#paste_cmd['i']
 let &clipboard = has('unnamedplus') ? 'unnamedplus' : 'unnamed'
 nnoremap <Leader>> :bnext<CR>
 nnoremap <Leader>< :bprev<CR>
+nnoremap <Leader>b :buffers<CR>
 nnoremap <Leader>q :bdelete<CR>
 nnoremap <Leader>Q :bufdo bd<CR>
 nnoremap <Leader>j :m +1<CR>
@@ -21,6 +22,14 @@ nmap <Leader>ev :tabedit $MYVIMRC
 nmap <Enter> :
 nmap <c-f> /
 nnoremap <c-g> <c-]>
+nnoremap <Leader>ga :!git add %<CR>
+nnoremap <Leader>gc :!git checkout %<CR>:e<CR>
+nnoremap <Leader>gn :GitGutterNextHunk<CR>
+nnoremap <Leader>gp :GitGutterPrevHunk<CR>
+nnoremap <Leader>an :ALENext<CR>
+nnoremap <Leader>ap :ALEPrevious<CR>
+nnoremap <Leader>cf :let @+ = expand("%:t")<CR>
+nnoremap <Leader>cF :let @+ = expand("%")<CR>
 
 set directory=$HOME/.vimtemp//
 set backupcopy=yes
@@ -46,7 +55,6 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-commentary'
 Plugin 'ervandew/supertab' " Smart autocomplete
-Plugin 'arnaud-lb/vim-php-namespace' " Auto import with use on php
 " Syntax
 Plugin 'jelera/vim-javascript-syntax'
 Plugin 'hail2u/vim-css3-syntax'
@@ -89,10 +97,6 @@ nmap <c-p>  :FZF<CR>
 set wildignore+=**/node_modules
 set wildignore+=**/vendor
 
-" ~~~ PHP autoimports ~~~
-autocmd FileType php nnoremap <Leader>u :call PhpInsertUse()<CR>
-let g:php_namespace_sort_after_insert = 1
-
 " ~~~ Statusline ~~~
 set laststatus=2
 
@@ -102,8 +106,7 @@ let g:ale_linters = {
 \    'php': ['phpcs'],
 \    'ruby': ['ruby'],
 \}
-
-" ~~~ Snippets ~~~
-nnoremap <Leader>cl :-1read ~/.vim/snippets/php/class<CR><S-v>3j=<ESC>3fncw
-nnoremap <Leader>fn :-1read ~/.vim/snippets/php/function<CR><S-v>3j=<ESC>3fncw
-nnoremap <Leader>doc :-1read ~/.vim/snippets/php/doc<CR><S-v>5j=<ESC>jwa<space>
+let g:ale_fixers = {
+\   'javascript': ['eslint'],
+\}
+nnoremap <Leader>f :ALEFix<CR>
