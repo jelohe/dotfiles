@@ -39,50 +39,47 @@ set backupdir=$HOME/.vimtemp//
 nmap <c-s> :w<CR>
 imap <c-s> <Esc>:w<CR>
 
-" ~~~ Vundle ~~~~
-set nocompatible
-filetype off
-
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-
-"Initialize and pass a path where Vundle should install plugins if necessary
-call vundle#begin('~/.vim/bundle/')
 
 " ~~~ Plugins ~~~
+" Install vim-plug
+if empty(glob('~/.vim/autoload/plug.vim'))
+    silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+                \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+"Initialize and pass a path where vim-plug should install plugins if necessary
+call plug#begin('~/.vim/plugged')
 " Misc / Extended functionality
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-commentary'
-Plugin 'ervandew/supertab' " Smart autocomplete
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-commentary'
+Plug 'ervandew/supertab' " Smart autocomplete
 " Syntax
-Plugin 'jelera/vim-javascript-syntax'
-Plugin 'hail2u/vim-css3-syntax'
-Plugin 'pangloss/vim-javascript'
-Plugin 'vim-scripts/vim-stylus'
-Plugin 'mxw/vim-jsx'
+Plug 'jelera/vim-javascript-syntax'
+Plug 'hail2u/vim-css3-syntax'
+Plug 'pangloss/vim-javascript'
+Plug 'vim-scripts/vim-stylus'
+Plug 'mxw/vim-jsx'
 " Themes
-Plugin 'bluz71/vim-moonfly-statusline'
-Plugin 'chriskempson/base16-vim'
+Plug 'bluz71/vim-moonfly-statusline'
 " Navigation
-Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plugin 'christoomey/vim-tmux-navigator'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'christoomey/vim-tmux-navigator'
 " Session management
-Plugin 'tpope/vim-obsession'
-Plugin 'dhruvasagar/vim-prosession'
+Plug 'tpope/vim-obsession'
+Plug 'dhruvasagar/vim-prosession'
 " Project workflow
-Plugin 'airblade/vim-gitgutter'
-Plugin 'w0rp/ale'
-Plugin 'tpope/vim-vinegar'
+Plug 'airblade/vim-gitgutter'
+Plug 'w0rp/ale'
+Plug 'tpope/vim-vinegar'
 
 " All of your Plugins must be added before the following line
-call vundle#end()
+call plug#end()
 
 filetype plugin indent on
 
 " Theme
 syntax enable
-colorscheme base16-eighties
+colorscheme codefocus
 set autoindent
 set tabstop=4 expandtab shiftwidth=4
 set relativenumber

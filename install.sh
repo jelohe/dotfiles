@@ -1,32 +1,26 @@
 #!/bin/bash
-echo -e "Starting the installation, please wait\e[31m"
 
-# Copy vim and tmux folder
-cp -r .vim ~/ > /dev/null
-cp -r .tmux ~/ > /dev/null
-cp -r .bashrc ~/ > /dev/null
+# Link vim and tmux folder
+ln -sf ~/dotfiles/.vim ~/
+ln -sf ~/dotfiles/.tmux ~/
+ln -sf ~/dotfiles/.bashrc ~/.bashrc
 
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
-# Copy config files
-cp .vimrc ~/ > /dev/null
-cp .tmux.conf ~/ > /dev/null
-cp .zshrc ~/ > /dev/null
-cp .tmux.config ~/ > /dev/null
+# Link config files
+ln -sf ~/dotfiles/.vimrc ~/.vimrc 
+ln -sf ~/dotfiles/.tmux.conf ~/.tmux.conf
+ln -sf ~/dotfiles/.tmuxline ~/.tmuxline
+ln -sf ~/dotfiles/.zshrc ~/.zshrc
 
 # Create backup dir for vim
-mkdir ~/.vimtemp > /dev/null
-
-echo -e "\e[39mConfig files and folders installed on ~\e[31m"
+mkdir -p ~/.vimtemp > /dev/null
 
 # Install vim plugins
-echo -e "\e[33mIgnore the following warning"
-vim -i NONE -c VundleUpdate -c quitall > /dev/null
-echo -e "\e[39mVim plugins installed\e[31m"
+vim +PlugInstall +qall
 
 # Install tmux plugins
-~/.tmux/plugins/tpm/scripts/install_plugins.sh > /dev/null
+~/.tmux/plugins/tpm/scripts/install_plugins.sh
 
-echo -e "\e[39mTmux plugins installed\e[31m"
-
-echo -e "\e[32mInstallation completed. Remember to change your terminal font and colors!"
+# Git config
+git config --global core.excludesfile ~/.gitignore_global
