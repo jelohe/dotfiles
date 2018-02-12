@@ -19,12 +19,6 @@ sudo apt-get install vim
 
 ```
 
-#### Global gitignore
-Run the following command to enable the global .gitignore
-```sh
-git config --global core.excludesfile ~/.gitignore_global
-```
-
 #### Enabling system clipboard on vim
 Ensure that running the following command on vim returns `1`:
 
