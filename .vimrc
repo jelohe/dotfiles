@@ -79,7 +79,7 @@ filetype plugin indent on
 
 " Theme
 syntax enable
-colorscheme codefocus
+colorscheme base16
 set autoindent
 set tabstop=4 expandtab shiftwidth=4
 set relativenumber
