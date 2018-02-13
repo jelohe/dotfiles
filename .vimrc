@@ -19,7 +19,7 @@ nnoremap <Leader>k :m -2<CR>
 nmap <Leader>ev :tabedit $MYVIMRC
 
 " General remaps
-nmap <Enter> :
+nnoremap <Enter> :
 nmap <c-f> /
 nnoremap <c-g> <c-]>
 nnoremap <Leader>ga :!git add %<CR>
