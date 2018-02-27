@@ -64,9 +64,6 @@ Plug 'bluz71/vim-moonfly-statusline'
 " Navigation
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'christoomey/vim-tmux-navigator'
-" Session management
-Plug 'tpope/vim-obsession'
-Plug 'dhruvasagar/vim-prosession'
 " Project workflow
 Plug 'airblade/vim-gitgutter'
 Plug 'w0rp/ale'
