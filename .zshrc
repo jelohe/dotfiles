@@ -30,7 +30,10 @@ alias -r vs='cd ~/projects/code/platform/apps/ && vagrant up && vagrant ssh'
 alias -r pm='git checkout payex_web/master'
 alias -r gs='git status'
 
+# Env
+export VISUAL=vim
+export EDITOR="$VISUAL"
+
 # Load oh my zsh
 source $ZSH/oh-my-zsh.sh
-
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

@@ -9,7 +9,6 @@ exe 'ino <script> <C-V>' paste#paste_cmd['i']
 let &clipboard = has('unnamedplus') ? 'unnamedplus' : 'unnamed'
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
-nnoremap <Leader>b :ls<CR>:b
 nnoremap <Leader>q :bdelete<CR>
 nnoremap <Leader>Q :bufdo bd<CR>
 nnoremap <Leader>j :m +1<CR>
@@ -30,6 +29,7 @@ nnoremap <Leader>an :ALENext<CR>
 nnoremap <Leader>ap :ALEPrevious<CR>
 nnoremap <Leader>cf :let @+ = expand("%:t")<CR>
 nnoremap <Leader>cF :let @+ = expand("%")<CR>
+nnoremap <Leader>b Buffers<CR>
 
 set directory=$HOME/.vimtemp//
 set backupcopy=yes
@@ -63,6 +63,7 @@ Plug 'mxw/vim-jsx'
 Plug 'bluz71/vim-moonfly-statusline'
 " Navigation
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 Plug 'christoomey/vim-tmux-navigator'
 " Project workflow
 Plug 'airblade/vim-gitgutter'
