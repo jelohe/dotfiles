@@ -31,6 +31,7 @@ nnoremap <Leader>an :ALENext<CR>
 nnoremap <Leader>ap :ALEPrevious<CR>
 nnoremap <Leader>cf :let @+ = expand("%:t")<CR>
 nnoremap <Leader>cF :let @+ = expand("%")<CR>
+nnoremap <Leader>b Buffers<CR>
 
 set directory=$HOME/.vimtemp//
 set backupcopy=yes
@@ -64,10 +65,8 @@ Plug 'mxw/vim-jsx'
 Plug 'bluz71/vim-moonfly-statusline'
 " Navigation
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 Plug 'christoomey/vim-tmux-navigator'
-" Session management
-Plug 'tpope/vim-obsession'
-Plug 'dhruvasagar/vim-prosession'
 " Project workflow
 Plug 'airblade/vim-gitgutter'
 Plug 'w0rp/ale'

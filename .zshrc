@@ -32,7 +32,10 @@ alias -r pc='git checkout public && git clean -f public'
 alias -r gs='git status'
 alias -r ub='git branch -D payex_web/update-bundles && git checkout -b payex_web/update-bundles'
 
+# Env
+export VISUAL=vim
+export EDITOR="$VISUAL"
+
 # Load oh my zsh
 source $ZSH/oh-my-zsh.sh
-
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
