@@ -10,18 +10,17 @@ let &clipboard = has('unnamedplus') ? 'unnamedplus' : 'unnamed'
 vnoremap J :m '>+1<CR>gv
 vnoremap K :m '<-2<CR>gv
 nnoremap <tab> <C-^>
-nnoremap <Leader>b :ls<CR>:b
 nnoremap <Leader>q :bdelete<CR>
 nnoremap <Leader>Q :bufdo bd<CR>
 nnoremap <Leader>j :m +1<CR>
 nnoremap <Leader>k :m -2<CR>
 
 " Open .vimrc
-nmap <Leader>ev :tabedit $MYVIMRC<CR>
+nnoremap <Leader>ev :tabedit $MYVIMRC<CR>
 
 " General remaps
 nnoremap <Enter> :
-nmap <c-f> /
+nnoremap <c-f> /
 nnoremap <c-g> <c-]>
 nnoremap <Leader>ga :!git add %<CR>
 nnoremap <Leader>gc :!git checkout %<CR>:e<CR>
@@ -36,10 +35,12 @@ nnoremap <Leader>b Buffers<CR>
 set directory=$HOME/.vimtemp//
 set backupcopy=yes
 set backupdir=$HOME/.vimtemp//
+set undofile
+set undodir=$HOME/.vimtemp//
 
 " save with ctrl+s
-nmap <c-s> :w<CR>
-imap <c-s> <Esc>:w<CR>
+nnoremap <c-s> :w<CR>
+inoremap <c-s> <Esc>:w<CR>
 
 
 " ~~~ Plugins ~~~
@@ -88,7 +89,7 @@ set timeoutlen=1000 ttimeoutlen=0
 "
 " ~~~ FZF ~~~
 let g:fzf_tags_command = 'ctags -R'
-nmap <c-p>  :FZF<CR>
+nnoremap <c-p>  :FZF<CR>
 
 " Ignore folders
 set wildignore+=**/node_modules
