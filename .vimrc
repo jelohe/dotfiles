@@ -30,7 +30,8 @@ nnoremap <Leader>an :ALENext<CR>
 nnoremap <Leader>ap :ALEPrevious<CR>
 nnoremap <Leader>cf :let @+ = expand("%:t")<CR>
 nnoremap <Leader>cF :let @+ = expand("%")<CR>
-nnoremap <Leader>b Buffers<CR>
+nnoremap <Leader>b :Buffers<CR>
+nnoremap <Leader>df 0y%%o<Esc>o<Esc>p%a;<Esc>
 
 set directory=$HOME/.vimtemp//
 set backupcopy=yes
