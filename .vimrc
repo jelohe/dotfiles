@@ -20,7 +20,6 @@ nnoremap <Leader>ev :tabedit $MYVIMRC<CR>
 
 " General remaps
 nnoremap <Enter> :
-nnoremap <c-f> /
 nnoremap <c-g> <c-]>
 nnoremap <Leader>ga :!git add %<CR>
 nnoremap <Leader>gc :!git checkout %<CR>:e<CR>
@@ -32,6 +31,7 @@ nnoremap <Leader>cf :let @+ = expand("%:t")<CR>
 nnoremap <Leader>cF :let @+ = expand("%")<CR>
 nnoremap <Leader>b :Buffers<CR>
 nnoremap <Leader>df 0y%%o<Esc>o<Esc>p%a;<Esc>
+inoremap <Tab> <c-p>
 
 set directory=$HOME/.vimtemp//
 set backupcopy=yes
@@ -56,7 +56,7 @@ call plug#begin('~/.vim/plugged')
 " Misc / Extended functionality
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
-Plug 'ervandew/supertab' " Smart autocomplete
+" Plug 'ervandew/supertab' " Smart autocomplete
 " Syntax
 Plug 'jelera/vim-javascript-syntax'
 Plug 'hail2u/vim-css3-syntax'

@@ -30,7 +30,6 @@ alias -r vs='cd ~/projects/code/platform/apps/ && vagrant up && vagrant ssh'
 alias -r pm='git checkout payex_web/master'
 alias -r pc='git checkout public && git clean -f public'
 alias -r gs='git status'
-alias -r ub='git branch -D payex_web/update-bundles && git checkout -b payex_web/update-bundles'
 
 # Env
 export VISUAL=vim
