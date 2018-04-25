@@ -79,15 +79,6 @@ call plug#end()
 
 filetype plugin indent on
 
-" Theme
-syntax enable
-colorscheme base16
-set autoindent
-set tabstop=4 expandtab shiftwidth=4
-set relativenumber
-:se noesckeys
-set timeoutlen=1000 ttimeoutlen=0
-"
 " ~~~ FZF ~~~
 let g:fzf_tags_command = 'ctags -R'
 nnoremap <c-p>  :FZF<CR>
@@ -98,6 +89,16 @@ set wildignore+=**/vendor
 
 " ~~~ Statusline ~~~
 set laststatus=2
+syntax enable
+colorscheme nord
+set listchars+=space:·
+set listchars+=eol:¬
+set list
+set autoindent
+set tabstop=4 expandtab shiftwidth=4
+set number
+:se noesckeys
+set timeoutlen=1000 ttimeoutlen=0
 
 " ~~~ ALE ~~~
 let g:ale_linters = {
