@@ -3,6 +3,16 @@ set guioptions-=m
 set guioptions-=T
 set guioptions-=L  "remove left-hand scroll bar
 
+" Autocomplete
+function! Tab_Or_Complete()
+  if col('.')>1 && strpart( getline('.'), col('.')-2, 3 ) =~ '^\w'
+    return "\<C-N>"
+  else
+    return "\<Tab>"
+  endif
+endfunction
+inoremap <Tab> <C-R>=Tab_Or_Complete()<CR>
+
 " Keymaps
 let mapleader="\<space>"
 exe 'ino <script> <C-V>' paste#paste_cmd['i']
@@ -31,7 +41,6 @@ nnoremap <Leader>cf :let @+ = expand("%:t")<CR>
 nnoremap <Leader>cF :let @+ = expand("%")<CR>
 nnoremap <Leader>b :Buffers<CR>
 nnoremap <Leader>df 0y%%o<Esc>o<Esc>p%a;<Esc>
-inoremap <Tab> <c-p>
 
 set directory=$HOME/.vimtemp//
 set backupcopy=yes
@@ -56,7 +65,6 @@ call plug#begin('~/.vim/plugged')
 " Misc / Extended functionality
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
-" Plug 'ervandew/supertab' " Smart autocomplete
 " Syntax
 Plug 'jelera/vim-javascript-syntax'
 Plug 'hail2u/vim-css3-syntax'
