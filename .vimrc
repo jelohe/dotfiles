@@ -118,3 +118,8 @@ let g:ale_fixers = {
 \   'javascript': ['eslint'],
 \}
 nnoremap <Leader>f :ALEFix<CR>
+
+" ~~~ Abbreviations ~~~
+ab arr () => {<CR><CR>}
+ab tst test('', () => {<CR><CR>});
+ab desc describe('', () => {<CR><CR>});
