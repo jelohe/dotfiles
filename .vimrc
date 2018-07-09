@@ -1,8 +1,3 @@
-" Removing toolbars
-set guioptions-=m
-set guioptions-=T
-set guioptions-=L  "remove left-hand scroll bar
-
 " Autocomplete
 function! Tab_Or_Complete()
   if col('.')>1 && strpart( getline('.'), col('.')-2, 3 ) =~ '^\w'
@@ -24,19 +19,20 @@ nnoremap <Leader>q :bdelete<CR>
 nnoremap <Leader>Q :bufdo bd<CR>
 nnoremap <Leader>j :m +1<CR>
 nnoremap <Leader>k :m -2<CR>
-
 " Open .vimrc
 nnoremap <Leader>ev :tabedit $MYVIMRC<CR>
-
-" General remaps
-nnoremap <Enter> :
-nnoremap <c-g> <c-]>
+" Git
 nnoremap <Leader>ga :!git add %<CR>
 nnoremap <Leader>gc :!git checkout %<CR>:e<CR>
 nnoremap <Leader>gn :GitGutterNextHunk<CR>
 nnoremap <Leader>gp :GitGutterPrevHunk<CR>
+" Lint
 nnoremap <Leader>an :ALENext<CR>
 nnoremap <Leader>ap :ALEPrevious<CR>
+nnoremap <Leader>f :ALEFix<CR>
+" Misc
+nnoremap <Enter> :
+nnoremap <c-g> <c-]>
 nnoremap <Leader>cf :let @+ = expand("%:t")<CR>
 nnoremap <Leader>cF :let @+ = expand("%")<CR>
 nnoremap <Leader>b :Buffers<CR>
@@ -47,6 +43,7 @@ set backupcopy=yes
 set backupdir=$HOME/.vimtemp//
 set undofile
 set undodir=$HOME/.vimtemp//
+set nocompatible
 
 " save with ctrl+s
 nnoremap <c-s> :w<CR>
@@ -65,6 +62,7 @@ call plug#begin('~/.vim/plugged')
 " Misc / Extended functionality
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
+Plug 'vimwiki/vimwiki'
 " Syntax
 Plug 'jelera/vim-javascript-syntax'
 Plug 'hail2u/vim-css3-syntax'
@@ -98,15 +96,15 @@ set wildignore+=**/vendor
 " ~~~ Statusline ~~~
 set laststatus=2
 syntax enable
-colorscheme nord
+colorscheme vice
 set listchars+=space:·
 set listchars+=eol:¬
-set list
 set autoindent
 set tabstop=4 expandtab shiftwidth=4
 set number
 :se noesckeys
 set timeoutlen=1000 ttimeoutlen=0
+set cursorline
 
 " ~~~ ALE ~~~
 let g:ale_linters = {
@@ -117,7 +115,6 @@ let g:ale_linters = {
 let g:ale_fixers = {
 \   'javascript': ['eslint'],
 \}
-nnoremap <Leader>f :ALEFix<CR>
 
 " ~~~ Abbreviations ~~~
 ab arr () => {<CR><CR>}
