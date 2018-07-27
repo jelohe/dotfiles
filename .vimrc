@@ -109,7 +109,6 @@ set cursorline
 " ~~~ ALE ~~~
 let g:ale_linters = {
 \    'javascript': ['eslint'],
-\    'php': ['phpcs'],
 \    'ruby': ['ruby'],
 \}
 let g:ale_fixers = {
