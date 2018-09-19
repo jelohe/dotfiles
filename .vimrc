@@ -36,7 +36,12 @@ nnoremap <c-g> <c-]>
 nnoremap <Leader>cf :let @+ = expand("%:t")<CR>
 nnoremap <Leader>cF :let @+ = expand("%")<CR>
 nnoremap <Leader>b :Buffers<CR>
-nnoremap <Leader>df 0y%%o<Esc>o<Esc>p%a;<Esc>
+nnoremap <Leader>df ?\stest<CR>0y%%o<Esc>o<Esc>p%a;<Esc>b%F'ci'
+nnoremap <Leader>tt ?\stest<CR>0y%%o<Esc>o<Esc>p%a;<Esc>b%F'ci'
+nnoremap <Leader>td ?\sdescribe<CR>0y%%o<Esc>o<Esc>p%a;<Esc>b%F'ci'
+nnoremap <Leader>to mz?\stest<CR>ea.only<Esc>:w<CR>`z
+nnoremap <Leader>ts mz?\stest<CR>ea.skip<Esc>:w<CR>`z
+nnoremap <Leader>ta mz:%s/test\.only/test/g<CR>:w<CR>`z
 
 set directory=$HOME/.vimtemp//
 set backupcopy=yes
@@ -86,7 +91,6 @@ call plug#end()
 filetype plugin indent on
 
 " ~~~ FZF ~~~
-let g:fzf_tags_command = 'ctags -R'
 nnoremap <c-p>  :FZF<CR>
 
 " Ignore folders
@@ -96,6 +100,7 @@ set wildignore+=**/vendor
 " ~~~ Statusline ~~~
 set laststatus=2
 syntax enable
+set background=dark
 colorscheme vice
 set listchars+=space:·
 set listchars+=eol:¬
@@ -114,8 +119,3 @@ let g:ale_linters = {
 let g:ale_fixers = {
 \   'javascript': ['eslint'],
 \}
-
-" ~~~ Abbreviations ~~~
-ab arr () => {<CR><CR>}
-ab tst test('', () => {<CR><CR>});
-ab desc describe('', () => {<CR><CR>});
