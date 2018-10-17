@@ -54,7 +54,6 @@ set nocompatible
 nnoremap <c-s> :w<CR>
 inoremap <c-s> <Esc>:w<CR>
 
-
 " ~~~ Plugins ~~~
 " Install vim-plug
 if empty(glob('~/.vim/autoload/plug.vim'))
@@ -111,6 +110,12 @@ set number
 set timeoutlen=1000 ttimeoutlen=0
 set cursorline
 
+" ~~~ Netrw ~~~
+let g:netrw_liststyle=3
+
+" ~~~ Ruby do/end % navigation ~~~
+runtime macros/matchit.vim
+
 " ~~~ ALE ~~~
 let g:ale_linters = {
 \    'javascript': ['eslint'],
@@ -118,4 +123,5 @@ let g:ale_linters = {
 \}
 let g:ale_fixers = {
 \   'javascript': ['eslint'],
+\   'ruby': ['rubocop']
 \}
