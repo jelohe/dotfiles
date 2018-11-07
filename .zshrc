@@ -28,10 +28,12 @@ stty -ixon
 # Aliases
 alias -r vs='cd ~/projects/code/platform/apps/ && vagrant up && vagrant ssh'
 alias -r gs='git status'
-alias -r p='cd ~/projects/code/platform/apps/payex_web'
-alias -r c='cd ~/projects/code/platform/apps/core'
-alias -r a='cd ~/projects/code/platform/apps/api'
-alias -r db='cd ~/projects/code/platform/infra/data_bags/apps'
+alias -r p='cd ~/projects/code/platform/apps/payex_web && tmux rename-window payex'
+alias -r ps='cd ~/projects/code/platform/apps/payschool && tmux rename-window payschool'
+alias -r g='cd ~/projects/code/platform/apps/gateway && tmux rename-window gateway'
+alias -r c='cd ~/projects/code/platform/apps/core && tmux rename-window core'
+alias -r a='cd ~/projects/code/platform/apps/api && tmux rename-window api'
+alias -r db='cd ~/projects/code/platform/infra/data_bags/apps && tmux rename-window data_bags'
 alias -r grm='branch=$(git rev-parse --abbrev-ref HEAD) && git checkout master && git pull && git checkout $branch && git rebase master'
 
 # Env

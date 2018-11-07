@@ -66,12 +66,9 @@ call plug#begin('~/.vim/plugged')
 " Misc / Extended functionality
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
-Plug 'vimwiki/vimwiki'
 " Syntax
-Plug 'jelera/vim-javascript-syntax'
-Plug 'hail2u/vim-css3-syntax'
 Plug 'pangloss/vim-javascript'
-Plug 'vim-scripts/vim-stylus'
+Plug 'hail2u/vim-css3-syntax'
 Plug 'mxw/vim-jsx'
 " Themes
 Plug 'bluz71/vim-moonfly-statusline'
@@ -100,7 +97,7 @@ set wildignore+=**/vendor
 set laststatus=2
 syntax enable
 set background=dark
-colorscheme vice
+colorscheme delek
 set listchars+=space:·
 set listchars+=eol:¬
 set autoindent
@@ -110,13 +107,11 @@ set number
 set timeoutlen=1000 ttimeoutlen=0
 set cursorline
 
-" ~~~ Netrw ~~~
-let g:netrw_liststyle=3
-
 " ~~~ Ruby do/end % navigation ~~~
 runtime macros/matchit.vim
 
 " ~~~ ALE ~~~
+let g:ale_linters_explicit = 1
 let g:ale_linters = {
 \    'javascript': ['eslint'],
 \    'ruby': ['ruby'],
