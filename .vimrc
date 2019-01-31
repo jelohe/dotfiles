@@ -22,8 +22,6 @@ nnoremap <Leader>k :m -2<CR>
 " Open .vimrc
 nnoremap <Leader>ev :tabedit $MYVIMRC<CR>
 " Git
-nnoremap <Leader>ga :!git add %<CR>
-nnoremap <Leader>gc :!git checkout %<CR>:e<CR>
 nnoremap <Leader>gn :GitGutterNextHunk<CR>
 nnoremap <Leader>gp :GitGutterPrevHunk<CR>
 " Lint
@@ -32,7 +30,6 @@ nnoremap <Leader>ap :ALEPrevious<CR>
 nnoremap <Leader>f :ALEFix<CR>
 " Misc
 nnoremap <Enter> :
-nnoremap <c-g> <c-]>
 nnoremap <Leader>cf :let @+ = expand("%:t")<CR>
 nnoremap <Leader>cF :let @+ = expand("%")<CR>
 nnoremap <Leader>b :Buffers<CR>
@@ -70,8 +67,6 @@ Plug 'tpope/vim-commentary'
 Plug 'pangloss/vim-javascript'
 Plug 'hail2u/vim-css3-syntax'
 Plug 'mxw/vim-jsx'
-" Themes
-Plug 'bluz71/vim-moonfly-statusline'
 " Navigation
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
@@ -95,11 +90,15 @@ set wildignore+=**/vendor
 
 " ~~~ Statusline ~~~
 set laststatus=2
+set statusline=\ %F "File path
+set statusline+=\ %m "File modified?
+set statusline+=\ %= "Go to the right side
+set statusline+=[%l/%L] "line/total lines
+set statusline+=\ %P "Height of the screen %
+
 syntax enable
 set background=dark
 colorscheme delek
-set listchars+=space:·
-set listchars+=eol:¬
 set autoindent
 set tabstop=4 expandtab shiftwidth=4
 set number
@@ -118,5 +117,6 @@ let g:ale_linters = {
 \}
 let g:ale_fixers = {
 \   'javascript': ['eslint'],
-\   'ruby': ['rubocop']
+\   'ruby': ['rubocop'],
+\   'json': ['prettier']
 \}
