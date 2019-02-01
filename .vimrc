@@ -90,7 +90,7 @@ set wildignore+=**/vendor
 
 " ~~~ Statusline ~~~
 set laststatus=2
-set statusline=\ %F "File path
+set statusline=\ %f "File path
 set statusline+=\ %m "File modified?
 set statusline+=\ %= "Go to the right side
 set statusline+=[%l/%L] "line/total lines
