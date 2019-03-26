@@ -8,6 +8,22 @@ function! Tab_Or_Complete()
 endfunction
 inoremap <Tab> <C-R>=Tab_Or_Complete()<CR>
 
+" React mappings
+function! ReactImport(from)
+    let word = expand("<cword>")
+    execute "normal mz"
+
+    if search("from '" . a:from . "'")
+        execute "normal F}hi, " . word . "\<esc>`z"
+    else
+        execute "normal gg}iimport { " . word . " } from '" . a:from . "';\n\<esc>`z"
+    endif
+    echom "imported"
+endfunction
+nnoremap <Leader>ia :call ReactImport("actions")<CR>
+nnoremap <Leader>is :call ReactImport("selectors")<CR>
+nnoremap <Leader>ic :call ReactImport("components")<CR>
+
 " Keymaps
 let mapleader="\<space>"
 exe 'ino <script> <C-V>' paste#paste_cmd['i']
