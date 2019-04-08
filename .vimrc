@@ -1,12 +1,12 @@
 " Autocomplete
-function! Tab_Or_Complete()
+function! TabOrComplete()
   if col('.')>1 && strpart( getline('.'), col('.')-2, 3 ) =~ '^\w'
     return "\<C-N>"
   else
     return "\<Tab>"
   endif
 endfunction
-inoremap <Tab> <C-R>=Tab_Or_Complete()<CR>
+inoremap <Tab> <C-R>=TabOrComplete()<CR>
 
 " Keymaps
 let mapleader="\<space>"
@@ -39,6 +39,15 @@ nnoremap <Leader>td ?\sdescribe<CR>0y%%o<Esc>o<Esc>p%a;<Esc>b%F'ci'
 nnoremap <Leader>to mz?\stest<CR>ea.only<Esc>:w<CR>`z
 nnoremap <Leader>ts mz?\stest<CR>ea.skip<Esc>:w<CR>`z
 nnoremap <Leader>ta mz:%s/test\.only/test/g<CR>:w<CR>`z
+" Redux project
+" - file navigation
+nnoremap <Leader>ea :Files actions<CR>
+nnoremap <Leader>es :Files selectors<CR>
+nnoremap <Leader>ec :Files components<CR>
+nnoremap <Leader>er :Files reducers<CR>
+" - imports                                    |
+"   TODO: This OR adding to the current import V
+" nnoremap <Leader>ia "zyiwmzgg}Oimport { <C-R>z } from 'actions';<Esc>`z
 
 set directory=$HOME/.vimtemp//
 set backupcopy=yes
@@ -63,6 +72,7 @@ call plug#begin('~/.vim/plugged')
 " Misc / Extended functionality
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
+Plug 'junegunn/goyo.vim'
 " Syntax
 Plug 'pangloss/vim-javascript'
 Plug 'hail2u/vim-css3-syntax'
@@ -106,9 +116,6 @@ set number
 set timeoutlen=1000 ttimeoutlen=0
 set cursorline
 
-" ~~~ Ruby do/end % navigation ~~~
-runtime macros/matchit.vim
-
 " ~~~ ALE ~~~
 let g:ale_linters_explicit = 1
 let g:ale_linters = {
@@ -120,3 +127,25 @@ let g:ale_fixers = {
 \   'ruby': ['rubocop'],
 \   'json': ['prettier']
 \}
+
+function! ReactImport(from)
+    let word = expand("<cword>")
+    let hasImport = search("from '" . a:from . "'")
+    let isMultiLineImport = getline('.') == "} from '" . a:from . "';"
+
+    execute "normal mz"
+
+    if hasImport
+        if isMultiLineImport
+            execute "normal kA,\<CR>" . word . "\<esc>`z"
+        else
+            execute "normal F}hi, " . word . "\<esc>`z"
+        endif
+    else
+        execute "normal gg}iimport { " . word . " } from '" . a:from . "';\n\<esc>`z"
+    endif
+endfunction
+
+nnoremap <Leader>ia :call ReactImport("actions")<CR>
+nnoremap <Leader>is :call ReactImport("selectors")<CR>
+nnoremap <Leader>ic :call ReactImport("constants/index")<CR>
