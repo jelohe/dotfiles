@@ -1,9 +1,5 @@
 [[ $TMUX = "" ]] && export TERM="xterm-256color"
 
-case $- in *i*)
-  if [ -z "$TMUX" ]; then exec tmux; fi;;
-esac
-
 DEFAULT_USER="txus"
 
 zle -N zle-line-init
@@ -28,7 +24,6 @@ stty -ixon
 # Aliases
 alias -r vs='cd ~/projects/code/platform/apps/ && vagrant up && vagrant ssh'
 alias -r p='cd ~/projects/code/platform/apps/payex_web && tmux rename-window payex'
-alias -r ps='cd ~/projects/code/platform/apps/payschool && tmux rename-window payschool'
 alias -r g='cd ~/projects/code/platform/apps/gateway && tmux rename-window gateway'
 alias -r c='cd ~/projects/code/platform/apps/core && tmux rename-window core'
 alias -r a='cd ~/projects/code/platform/apps/api && tmux rename-window api'
@@ -51,6 +46,7 @@ alias -r gca='git commit --amend --no-edit'
 # Env
 export VISUAL=vim
 export EDITOR="$VISUAL"
+export PACKAGE_CLOUD_API_TOKEN=56706dc4dd72105512b9d07e8e10d69d9089a950df032546
 export PT_VM_MEMORY=4096
 
 # Load oh my zsh
