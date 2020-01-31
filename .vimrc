@@ -30,7 +30,7 @@ nnoremap <Leader>ap :ALEPrevious<CR>
 nnoremap <Leader>f :ALEFix<CR>
 " Misc
 nnoremap <Enter> :
-nnoremap <Leader>cf :let @+ = expand("%:t")<CR>
+nnoremap <Leader>cf :let @+ = expand("%")<CR>
 nnoremap <Leader>cF :let @+ = expand("%")<CR>
 nnoremap <Leader>b :Buffers<CR>
 nnoremap <Leader>df ?\stest<CR>0y%%o<Esc>o<Esc>p%a;<Esc>b%F'ci'
@@ -83,6 +83,8 @@ filetype plugin indent on
 
 " ~~~ FZF ~~~
 nnoremap <c-p>  :FZF<CR>
+nnoremap <Leader>r :Rg 
+let g:fzf_tags_command = 'ctags -R'
 
 " Ignore folders
 set wildignore+=**/node_modules
@@ -98,7 +100,8 @@ set statusline+=\ %P "Height of the screen %
 
 syntax enable
 set background=dark
-colorscheme elflord
+" colorscheme elflord
+colorscheme srcery
 set autoindent
 set tabstop=4 expandtab shiftwidth=4
 set number
