@@ -12,7 +12,6 @@ zle -N zle-keymap-select
 # Path to your oh-my-zsh installation.
 export ZSH=~/.oh-my-zsh
 
-# ZSH_THEME="gallifrey"
 ZSH_THEME="minimal"
 
 # Add wisely, as too many plugins slow down shell startup.
@@ -26,8 +25,8 @@ alias -r vs='cd ~/projects/code/platform/apps/ && vagrant up && vagrant ssh'
 alias -r p='cd ~/projects/payex-web && tmux rename-window payex'
 alias -r d='cd ~/projects/dashboards && tmux rename-window dashboards'
 alias -r g='cd ~/projects/code/platform/apps/gateway && tmux rename-window gateway'
-alias -r c='cd ~/projects/code/platform/apps/core && tmux rename-window core'
-alias -r a='cd ~/projects/code/platform/apps/api && tmux rename-window api'
+alias -r c='cd ~/projects/flywire-core && tmux rename-window core'
+alias -r a='cd ~/projects/flywire-api && tmux rename-window api'
 alias -r db='cd ~/projects/code/platform/infra/data_bags/apps && tmux rename-window data_bags'
 alias -r lp='cd ~/projects/landing-pages && tmux rename-window landing'
 alias -r o='cd ~/projects/opp-client && tmux rename-window opp'
@@ -47,6 +46,16 @@ alias -r gsl='git stash list'
 alias -r gsp='git stash pop'
 alias -r gsd='git stash drop'
 alias -r gca='git commit --amend --no-edit'
+wip() {
+    git add .
+    if [ -n "$1" ]
+    then
+        git commit -m "[SKIP_MANUAL][SKIP_BRANCH_TESTS] $1"
+    else
+        git commit -m "[SKIP_MANUAL][SKIP_BRANCH_TESTS] wip"
+    fi
+    git push -u origin $(git rev-parse --abbrev-ref HEAD)
+}
 
 # Env
 export VISUAL=vim
@@ -64,3 +73,13 @@ source $ZSH/oh-my-zsh.sh
 # tabtab source for sls package
 # uninstall by removing these lines or running `tabtab uninstall sls`
 [[ -f /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh ]] && . /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/Users/jesus/.sdkman"
+[[ -s "/Users/jesus/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/jesus/.sdkman/bin/sdkman-init.sh"
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
+
+# heroku autocomplete setup
+HEROKU_AC_ZSH_SETUP_PATH=/Users/jesus/Library/Caches/heroku/autocomplete/zsh_setup && test -f $HEROKU_AC_ZSH_SETUP_PATH && source $HEROKU_AC_ZSH_SETUP_PATH;
