@@ -11,12 +11,8 @@ Install `vim`, `zsh`, `tmux` and `curl` on your system.
 Then, simply run `./install.sh`.
 
 ## Extras
-#### Install vim 8
-```sh
-sudo add-apt-repository ppa:jonathonf/vim
-sudo apt-get update
-sudo apt-get install vim
-
+Install `fzf` and `bat` for fuzzy finding.
+Install `ale` for realtime linting.
 ```
 
 #### Enabling system clipboard on vim
@@ -25,4 +21,4 @@ Ensure that running the following command on vim returns `1`:
 ```sh
 :echo has('clipboard')
 ```
-If the above command returns `0` try installing another vim version, for example `vim-gtk`.
+If the above command returns `0` try installing another vim version, for example `vim-gtk` or `vim-gtk3`.

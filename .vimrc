@@ -12,6 +12,7 @@ inoremap <Tab> <C-R>=TabOrComplete()<CR>
 let mapleader="\<space>"
 exe 'ino <script> <C-V>' paste#paste_cmd['i']
 let &clipboard = has('unnamedplus') ? 'unnamedplus' : 'unnamed'
+
 vnoremap J :m '>+1<CR>gv
 vnoremap K :m '<-2<CR>gv
 nnoremap <tab> <C-^>
@@ -26,14 +27,9 @@ nnoremap <Leader>gn :GitGutterNextHunk<CR>
 nnoremap <Leader>gp :GitGutterPrevHunk<CR>
 
 " Lint
-nmap <silent> <Leader>an <Plug>(coc-diagnostic-next)
-nnoremap <Leader>ap <Plug>(coc-diagnostic-prev)
-nnoremap <Space>f :CocAction<CR>
-nnoremap <silent> gd <Plug>(coc-definition)
-" nnoremap <Leader>f <Plug>(coc-fix-current)
-" nnoremap <Leader>an :ALENext<CR>
-" nnoremap <Leader>ap :ALEPrevious<CR>
-" nnoremap <Leader>f :ALEFix<CR>
+nnoremap <Leader>an :ALENext<CR>
+nnoremap <Leader>ap :ALEPrevious<CR>
+nnoremap <Leader>f :OmniSharpCodeFormat<CR>
 " Misc
 nnoremap <Enter> :
 nnoremap <Leader>cf :let @+ = expand("%")<CR>
@@ -52,6 +48,8 @@ set backupdir=$HOME/.vimtemp//
 set undofile
 set undodir=$HOME/.vimtemp//
 set nocompatible
+set visualbell
+set t_vb=
 
 " Give more space for displaying messages.
 set cmdheight=1
@@ -80,16 +78,20 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 endif
 "Initialize and pass a path where vim-plug should install plugins if necessary
 call plug#begin('~/.vim/plugged')
+" Colors
+Plug 'jamespwilliams/bat.vim'
 " Misc / Extended functionality
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 " Syntax
+Plug 'dense-analysis/ale'
 Plug 'hail2u/vim-css3-syntax'
 Plug 'pangloss/vim-javascript'
 Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
+Plug 'OmniSharp/omnisharp-vim'
 " Navigation
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'christoomey/vim-tmux-navigator'
 " Project workflow
@@ -99,15 +101,11 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " All of your Plugins must be added before the following line
 call plug#end()
-
 filetype plugin indent on
 
 " ~~~ FZF ~~~
-nnoremap <c-p>  :FZF<CR>
+nnoremap <c-p>  :Files<CR>
 nnoremap <Leader>r :Rg 
-let g:fzf_tags_command = 'ctags -R'
-let $FZF_DEFAULT_COMMAND = 'rg --files'
-let g:fzf_preview_window = ''
 
 " Ignore folders
 set wildignore+=**/node_modules
@@ -136,9 +134,11 @@ set statusline+=[%l/%L] "line/total lines
 set statusline+=\ %P "Height of the screen %
 
 syntax enable
-set background=dark
+set termguicolors
+
+" colorscheme bat
 colorscheme srcery
-let g:srcery_transparent_background=1
+
 set autoindent
 set tabstop=4 expandtab shiftwidth=4
 set number
@@ -146,43 +146,29 @@ set number
 set timeoutlen=1000 ttimeoutlen=0
 set hidden
 
-" ~~~ ALE ~~~
+" ~~~ COC ~~~
 let g:coc_global_extensions = [
 \ 'coc-tsserver'
 \ ]
-" let g:ale_linters_explicit = 1
-" let g:ale_linters = {
-" \    'javascript': ['eslint'],
-" \    'ruby': ['ruby'],
-" \}
-" let g:ale_fixers = {
-" \   'javascript': ['eslint'],
-" \   'ruby': ['rubocop'],
-" \   'json': ['prettier']
-" \}
+
+" ~~~ ALE ~~~
+let g:ale_linters_explicit = 1
+let g:ale_linters = {
+\    'javascript': ['eslint'],
+\    'ruby': ['ruby'],
+\    'cs': ['OmniSharp']
+\}
+let g:ale_fixers = {
+\   'javascript': ['eslint'],
+\   'ruby': ['rubocop'],
+\   'json': ['prettier'],
+\   'cs': ['dotnet-format']
+\}
+
+" ~~~ Omni # ~~~
+let g:OmniSharp_translate_cygwin_wsl = 1
+let g:OmniSharp_highlighting = 0
 
 " ~~~ typescript jsx ~~~
 " set filetypes as typescriptreact
 autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescriptreact
-
-function! ReactImport(from)
-    execute "normal mz"
-    let word = expand("<cword>")
-    let hasImport = search("from '" . a:from . "'")
-    let isMultiLineImport = getline('.') == "} from '" . a:from . "';"
-
-    if hasImport
-        if isMultiLineImport
-            execute "normal O" . word . ",\<esc>`z"
-        else
-            execute "normal F}hi, " . word . "\<esc>`z"
-        endif
-    else
-        execute "normal gg}iimport { " . word . " } from '" . a:from . "';\n\<esc>`z"
-    endif
-    echo word . " IMPORTED"
-endfunction
-
-nnoremap <Leader>ia :call ReactImport("actions")<CR>
-nnoremap <Leader>is :call ReactImport("selectors")<CR>
-nnoremap <Leader>ic :call ReactImport("constants/index")<CR>

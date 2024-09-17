@@ -1,10 +1,11 @@
-[[ $TMUX = "" ]] && export TERM="xterm-256color"
+# [[ $TMUX = "" ]] && export TERM="xterm-256color"
 
 DEFAULT_USER="txus"
 
 zle -N zle-line-init
 zle -N zle-keymap-select
 export KEYTIMEOUT=1
+export COLORTERM=truecolor
 
 zle -N zle-line-init
 zle -N zle-keymap-select
@@ -21,16 +22,7 @@ plugins=(vi-mode)
 stty -ixon
 
 # Aliases
-alias -r vs='cd ~/projects/code/platform/apps/ && vagrant up && vagrant ssh'
-alias -r p='cd ~/projects/payex-web && tmux rename-window payex'
-alias -r d='cd ~/projects/dashboards && tmux rename-window dashboards'
-alias -r g='cd ~/projects/code/platform/apps/gateway && tmux rename-window gateway'
-alias -r c='cd ~/projects/flywire-core && tmux rename-window core'
-alias -r a='cd ~/projects/flywire-api && tmux rename-window api'
-alias -r db='cd ~/projects/code/platform/infra/data_bags/apps && tmux rename-window data_bags'
-alias -r lp='cd ~/projects/landing-pages && tmux rename-window landing'
-alias -r o='cd ~/projects/opp-client && tmux rename-window opp'
-alias -r e='cd ~/projects && tmux rename-window embedded'
+alias -r g='cd /mnt/c/Proyectos/Grain/Assets/Scripts'
 alias -r grm='branch=$(git rev-parse --abbrev-ref HEAD) && git checkout master && git pull && git checkout $branch && git rebase master'
 alias -r gs='git status'
 alias -r gd='git diff'
