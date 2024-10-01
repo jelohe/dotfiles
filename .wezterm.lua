@@ -1,7 +1,32 @@
 local wezterm = require 'wezterm'
 local act = wezterm.action
 
+-- Custom utilities
+function range(start, finish)
+  local t = {}
+  for i = start, finish do
+    t[#t + 1] = i
+  end
+  return t
+end
+
+function map(tbl, func)
+  local new_tbl = {}
+  for i, v in ipairs(tbl) do
+    new_tbl[i] = func(v)
+  end
+  return new_tbl
+end
+
+function umap(tbl, func)
+    return table.unpack(map(tbl, func))
+end
+
+-- Go have fun!
 local config = wezterm.config_builder()
+
+-- Startup as Ubuntu on WSL
+config.default_domain = 'WSL:UbuntuD' -- $ wsl -l -v
 
 -- Tab bar
 config.font_size = 12
@@ -23,29 +48,42 @@ config.font = wezterm.font 'JetBrains Mono'
 config.leader = { key = 'a', mods = 'CTRL', timeout_milliseconds = 1000 }
 
 -- Action wrappers
+-- Tabs
 NewTab = act.SpawnTab 'CurrentPaneDomain'
+OpenTab = function(n)
+  return act.ActivateTab(n - 1)
+end
+
+-- Splits
+CloseSplit = act.CloseCurrentPane { confirm = true }
+ZoomSplit = act.TogglePaneZoomState
+
 HSplit = act.SplitHorizontal { domain = 'CurrentPaneDomain' }
 VSplit = act.SplitVertical { domain = 'CurrentPaneDomain' }
-ClosePane = act.CloseCurrentPane { confirm = true }
-ZoomPane = act.TogglePaneZoomState
+
 Left = act.ActivatePaneDirection('Left')
 Right = act.ActivatePaneDirection('Right')
 Up = act.ActivatePaneDirection('Up')
 Down = act.ActivatePaneDirection('Down')
 
 config.keys = {
-  -- Pane/window management
-  { mods = 'LEADER', key = 'c', action = NewTab },
+  -- Splits
   { mods = 'LEADER', key = '/', action = HSplit },
   { mods = 'LEADER', key = '-', action = VSplit },
-  { mods = 'LEADER', key = 'x', action = ClosePane },
-  { mods = 'LEADER', key = 'z', action = ZoomPane },
-
-  -- Pane navigation
+  { mods = 'LEADER', key = 'x', action = CloseSplit },
+  { mods = 'LEADER', key = 'z', action = ZoomSplit },
+  -- Split nav
   { mods = 'LEADER', key = 'h', action = Left },
   { mods = 'LEADER', key = 'l', action = Right },
   { mods = 'LEADER', key = 'k', action = Up },
   { mods = 'LEADER', key = 'j', action = Down },
+
+  -- Tabs
+  { mods = 'LEADER', key = 'c', action = NewTab },
+  -- Tab nav
+  umap(range(1, 8), function(n) return
+      { mods = 'LEADER', key = tostring(n), action = OpenTab(n) }
+  end),
 }
 
 return config
