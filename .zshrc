@@ -1,5 +1,3 @@
-# [[ $TMUX = "" ]] && export TERM="xterm-256color"
-
 DEFAULT_USER="txus"
 
 zle -N zle-line-init
@@ -22,7 +20,7 @@ plugins=(vi-mode)
 stty -ixon
 
 # Aliases
-alias -r g='cd /mnt/c/Proyectos/Grain/Assets/Scripts'
+alias -r g='cd /mnt/d/Proyectos/Grain/Assets/Scripts'
 alias -r grm='branch=$(git rev-parse --abbrev-ref HEAD) && git checkout master && git pull && git checkout $branch && git rebase master'
 alias -r gs='git status'
 alias -r gd='git diff'
@@ -38,40 +36,11 @@ alias -r gsl='git stash list'
 alias -r gsp='git stash pop'
 alias -r gsd='git stash drop'
 alias -r gca='git commit --amend --no-edit'
-wip() {
-    git add .
-    if [ -n "$1" ]
-    then
-        git commit -m "[SKIP_MANUAL][SKIP_BRANCH_TESTS] $1"
-    else
-        git commit -m "[SKIP_MANUAL][SKIP_BRANCH_TESTS] wip"
-    fi
-    git push -u origin $(git rev-parse --abbrev-ref HEAD)
-}
 
 # Env
 export VISUAL=vim
 export EDITOR="$VISUAL"
-export PACKAGE_CLOUD_API_TOKEN=56706dc4dd72105512b9d07e8e10d69d9089a950df032546
-export PT_VM_MEMORY=4096
 
 # Load oh my zsh
 source $ZSH/oh-my-zsh.sh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-# tabtab source for serverless package
-# uninstall by removing these lines or running `tabtab uninstall serverless`
-[[ -f /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh ]] && . /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh
-# tabtab source for sls package
-# uninstall by removing these lines or running `tabtab uninstall sls`
-[[ -f /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh ]] && . /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh
-
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="/Users/jesus/.sdkman"
-[[ -s "/Users/jesus/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/jesus/.sdkman/bin/sdkman-init.sh"
-
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
-
-# heroku autocomplete setup
-HEROKU_AC_ZSH_SETUP_PATH=/Users/jesus/Library/Caches/heroku/autocomplete/zsh_setup && test -f $HEROKU_AC_ZSH_SETUP_PATH && source $HEROKU_AC_ZSH_SETUP_PATH;

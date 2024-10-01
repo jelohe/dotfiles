@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =6
+let g:netrw_dirhist_6='/home/txus/dotfiles'
+let g:netrw_dirhist_5='/home/txus/dotfiles/.git'
+let g:netrw_dirhist_4='/home/txus/dotfiles'
+let g:netrw_dirhist_3='/home/txus/dotfiles/.git'
+let g:netrw_dirhist_2='/home/txus/dotfiles/.git/info'
+let g:netrw_dirhist_1='/home/txus/dotfiles/.git'
+let g:netrw_dirhist_0='/home/txus/dotfiles/.git/logs'
+let g:netrw_dirhist_9='/home/txus/dotfiles/.git/logs/refs'
+let g:netrw_dirhist_8='/home/txus/dotfiles/.git/logs/refs/remotes'
+let g:netrw_dirhist_7='/home/txus/dotfiles/.git/logs/refs/remotes/origin'

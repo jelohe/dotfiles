@@ -1,7 +1,1 @@
-.vim/bundle
-.vim/session
-.vim/.netrwhist
-.vim/autoload
-.vim/plugged
-.tmux/resurrect
-!.tmux/plugins/tpm
+.vim/plugged/

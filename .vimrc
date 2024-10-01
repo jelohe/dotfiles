@@ -36,6 +36,12 @@ nnoremap <Leader>cf :let @+ = expand("%")<CR>
 nnoremap <Leader>cF :let @+ = expand("%")<CR>
 nnoremap <Leader>b :Buffers<CR>
 
+" Window navigation
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+
 nnoremap <Leader>td ?\sdescribe<CR>0y%%o<Esc>o<Esc>p%a;<Esc>b%F'ci'
 nnoremap <Leader>tt ?\stest<CR>0y%%o<Esc>o<Esc>p%a;<Esc>b%F'ci'
 nnoremap <Leader>to mz?\stest<CR>ea.only<Esc>:w<CR>`z
@@ -79,7 +85,8 @@ endif
 "Initialize and pass a path where vim-plug should install plugins if necessary
 call plug#begin('~/.vim/plugged')
 " Colors
-Plug 'jamespwilliams/bat.vim'
+Plug 'seesleestak/duo-mini'
+Plug 'junegunn/goyo.vim'
 " Misc / Extended functionality
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
@@ -93,7 +100,6 @@ Plug 'OmniSharp/omnisharp-vim'
 " Navigation
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-Plug 'christoomey/vim-tmux-navigator'
 " Project workflow
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-vinegar'
@@ -135,9 +141,8 @@ set statusline+=\ %P "Height of the screen %
 
 syntax enable
 set termguicolors
-
-" colorscheme bat
-colorscheme srcery
+colorscheme duo-mini
+" colorscheme srcery
 
 set autoindent
 set tabstop=4 expandtab shiftwidth=4

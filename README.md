@@ -7,11 +7,13 @@ git clone --recursive https://github.com/jelohe/dotfiles
 ```
 
 ## Installing
-Install `vim`, `zsh`, `tmux` and `curl` on your system.
+Provided config for WezTerm: `.wezterm.lua`, you'll have to manually move it to `/mnt/[drive]/Users/[user]` if you are on WSL.
+
+Install `vim`, `zsh` and `curl` on your system.
 Then, simply run `./install.sh`.
 
 ## Extras
-Install `fzf` and `bat` for fuzzy finding.
+Install `fzf` (and optionally `bat` for file previews) for fuzzy finding.
 Install `ale` for realtime linting.
 ```
 
