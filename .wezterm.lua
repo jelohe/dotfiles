@@ -61,6 +61,11 @@ ZoomSplit = act.TogglePaneZoomState
 HSplit = act.SplitHorizontal { domain = 'CurrentPaneDomain' }
 VSplit = act.SplitVertical { domain = 'CurrentPaneDomain' }
 
+PaneUp = act.AdjustPaneSize { 'Up', 8 }
+PaneDown = act.AdjustPaneSize { 'Down', 8 }
+PaneRight = act.AdjustPaneSize { 'Right', 8 }
+PaneLeft = act.AdjustPaneSize { 'Left', 8 }
+
 Left = act.ActivatePaneDirection('Left')
 Right = act.ActivatePaneDirection('Right')
 Up = act.ActivatePaneDirection('Up')
@@ -77,6 +82,11 @@ config.keys = {
   { mods = 'LEADER', key = 'l', action = Right },
   { mods = 'LEADER', key = 'k', action = Up },
   { mods = 'LEADER', key = 'j', action = Down },
+  -- Split resize
+  { mods = 'LEADER', key = 'H', action = PaneLeft },
+  { mods = 'LEADER', key = 'L', action = PaneRight },
+  { mods = 'LEADER', key = 'K', action = PaneUp },
+  { mods = 'LEADER', key = 'J', action = PaneDown },
 
   -- Tabs
   { mods = 'LEADER', key = 'c', action = NewTab },

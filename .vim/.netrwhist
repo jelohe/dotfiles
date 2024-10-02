@@ -1,5 +1,6 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =8
+let g:netrw_dirhistcnt =9
+let g:netrw_dirhist_9='/home/txus/projects/elixir-camp'
 let g:netrw_dirhist_8='/mnt/c/Users/txus'
 let g:netrw_dirhist_7='/home/txus/projects/elixir-koans/lib/koans'
 let g:netrw_dirhist_6='/home/txus/dotfiles'
@@ -9,4 +10,3 @@ let g:netrw_dirhist_3='/home/txus/dotfiles/.git'
 let g:netrw_dirhist_2='/home/txus/dotfiles/.git/info'
 let g:netrw_dirhist_1='/home/txus/dotfiles/.git'
 let g:netrw_dirhist_0='/home/txus/dotfiles/.git/logs'
-let g:netrw_dirhist_9='/home/txus/dotfiles/.git/logs/refs'
