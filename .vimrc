@@ -29,7 +29,8 @@ nnoremap <Leader>gp :GitGutterPrevHunk<CR>
 " Lint
 nnoremap <Leader>an :ALENext<CR>
 nnoremap <Leader>ap :ALEPrevious<CR>
-nnoremap <Leader>f :OmniSharpCodeFormat<CR>
+nnoremap <Leader>f :ALEFix<CR>
+" nnoremap <Leader>f :OmniSharpCodeFormat<CR>
 " Misc
 nnoremap <Enter> :
 nnoremap <Leader>cf :let @+ = expand("%")<CR>
@@ -97,6 +98,7 @@ Plug 'pangloss/vim-javascript'
 Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
 Plug 'OmniSharp/omnisharp-vim'
+Plug 'elixir-editors/vim-elixir'
 " Navigation
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
@@ -167,7 +169,8 @@ let g:ale_fixers = {
 \   'javascript': ['eslint'],
 \   'ruby': ['rubocop'],
 \   'json': ['prettier'],
-\   'cs': ['dotnet-format']
+\   'cs': ['dotnet-format'],
+\   'elixir': ['mix_format']
 \}
 
 " ~~~ Omni # ~~~

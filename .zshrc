@@ -14,7 +14,7 @@ export ZSH=~/.oh-my-zsh
 ZSH_THEME="minimal"
 
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(vi-mode)
+plugins=(vi-mode asdf)
 
 # Remove c-s command in the terminal
 stty -ixon
