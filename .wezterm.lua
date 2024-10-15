@@ -22,6 +22,13 @@ function umap(tbl, func)
     return table.unpack(map(tbl, func))
 end
 
+function get_appearance()
+  if wezterm.gui then
+    return wezterm.gui.get_appearance()
+  end
+  return 'Dark'
+end
+
 -- Go have fun!
 local config = wezterm.config_builder()
 
@@ -41,7 +48,15 @@ config.enable_scroll_bar = false
 config.window_decorations = 'RESIZE'
 
 -- Pretty colors
-config.color_scheme = 'Wryan'
+function scheme_for_appearance(appearance)
+  if appearance:find 'Dark' then
+    return 'Grayscale Dark (base16)'
+  else
+    return 'Grayscale Light (base16)'
+  end
+end
+
+config.color_scheme = scheme_for_appearance(get_appearance())
 config.font = wezterm.font 'JetBrains Mono'
 
 -- Leader key

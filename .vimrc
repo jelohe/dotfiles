@@ -22,9 +22,6 @@ nnoremap <Leader>j :m +1<CR>
 nnoremap <Leader>k :m -2<CR>
 " Open .vimrc
 nnoremap <Leader>ev :tabedit $MYVIMRC<CR>
-" Git
-nnoremap <Leader>gn :GitGutterNextHunk<CR>
-nnoremap <Leader>gp :GitGutterPrevHunk<CR>
 
 " Lint
 nnoremap <Leader>an :ALENext<CR>
@@ -86,8 +83,9 @@ endif
 "Initialize and pass a path where vim-plug should install plugins if necessary
 call plug#begin('~/.vim/plugged')
 " Colors
-Plug 'seesleestak/duo-mini'
 Plug 'junegunn/goyo.vim'
+Plug 'pgdouyon/vim-yin-yang'
+Plug 'vimpostor/vim-lumen'
 " Misc / Extended functionality
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
@@ -103,7 +101,6 @@ Plug 'elixir-editors/vim-elixir'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 " Project workflow
-Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-vinegar'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
@@ -114,6 +111,7 @@ filetype plugin indent on
 " ~~~ FZF ~~~
 nnoremap <c-p>  :Files<CR>
 nnoremap <Leader>r :Rg 
+let g:fzf_preview_window = []
 
 " Ignore folders
 set wildignore+=**/node_modules
@@ -141,10 +139,14 @@ set statusline+=\ %= "Go to the right side
 set statusline+=[%l/%L] "line/total lines
 set statusline+=\ %P "Height of the screen %
 
+" ~~~ COLORS ~~~
 syntax enable
 set termguicolors
-colorscheme duo-mini
-" colorscheme srcery
+if (&background == 'dark')
+    colorscheme yin
+else
+    colorscheme yang
+endif
 
 set autoindent
 set tabstop=4 expandtab shiftwidth=4
