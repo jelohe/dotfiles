@@ -1,0 +1,10 @@
+[Magia]
+
+## Tags
+[@tag1] [@tag2]
+
+## Pergaminos
+[grimorio.md]
+
+## Referencias
+[https://mundo.com]

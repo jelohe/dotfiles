@@ -11,6 +11,9 @@ ln -sf ~/dotfiles/.vimrc ~/.vimrc
 ln -sf ~/dotfiles/.zshrc ~/.zshrc
 ln -sf ~/dotfiles/.wezterm.lua ~/.wezterm.lua
 
+# Link personal wiki
+ln -sf ~/dotfiles/.grimorio ~/
+
 # Create backup dir for vim
 mkdir -p ~/.vimtemp > /dev/null
 

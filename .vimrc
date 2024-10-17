@@ -22,6 +22,8 @@ nnoremap <Leader>j :m +1<CR>
 nnoremap <Leader>k :m -2<CR>
 " Open .vimrc
 nnoremap <Leader>ev :tabedit $MYVIMRC<CR>
+" Reload .vimrc
+nnoremap <Leader>rv :source $MYVIMRC<CR>
 
 " Lint
 nnoremap <Leader>an :ALENext<CR>
