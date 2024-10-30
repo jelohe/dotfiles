@@ -1,5 +1,17 @@
 === Pergaminos ===
 
+[crear-server-minimalista-elixir.md]
+[crear-api-json-phoenix.md]
+[ash-elixir-framework.md]
+[charla-compilador-js.md]
+[steamchata-destileria-moxy.md]
+[rol-fate-online.md]
+[itour.md]
+[lo-bueno-de-orientacion-objetos.md]
+[contenido-web.md]
+[alojamiento-web.md]
+[preguntas-cliente.md]
+[supervisores-elixir.md]
 [inmutabilidad.md]
 [funciones-puras.md]
 [evitar-efectos-secundarios.md]
