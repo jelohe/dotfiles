@@ -75,6 +75,9 @@ set signcolumn=yes
 nnoremap <c-s> :w<CR>
 inoremap <c-s> <Esc>:w<CR>
 
+" Keep cursor in the middle
+:set so=999
+
 " ~~~ Plugins ~~~
 " Install vim-plug
 if empty(glob('~/.vim/autoload/plug.vim'))

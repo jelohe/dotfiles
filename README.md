@@ -1,18 +1,12 @@
-# My vim + tmux + zsh config
-
-## Cloning
-Clone the repo using the following command in order to install the git submodules:
-```sh
-git clone --recursive https://github.com/jelohe/dotfiles
-```
+# My dotfiles
 
 ## Installing
 Provided config for WezTerm: `.wezterm.lua`, you'll have to manually move it to `/mnt/[drive]/Users/[user]` if you are on WSL.
 
-Install `vim`, `zsh` and `curl` on your system.
+Install `vim`, `zsh` and `curl` on your system (apt, brew, etc.)
 Then, simply run `./install.sh`.
 
-## Extras
+## Extras (apt, brew, etc.)
 Install `fzf` (and optionally `bat` for file previews) for fuzzy finding.
 Install `ale` for realtime linting.
 ```
