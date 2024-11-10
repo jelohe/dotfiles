@@ -1,24 +1,32 @@
 #!/bin/bash
 
-# Link vim folder
-ln -sf ~/dotfiles/.vim ~/
-ln -sf ~/dotfiles/.bashrc ~/.bashrc
+# Homebrew
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
-# Link config files
-ln -sf ~/dotfiles/.vimrc ~/.vimrc 
-ln -sf ~/dotfiles/.zshrc ~/.zshrc
-ln -sf ~/dotfiles/.wezterm.lua ~/.wezterm.lua
+/bin/bash -c "$(echo >> /home/txus/.zshrc)"
+/bin/bash -c "$(echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> /home/txus/.zshrc)"
+/bin/bash -c "$(eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)")"
 
-# Link personal wiki
-ln -sf ~/dotfiles/.grimorio ~/
+apps=(
+  asdf
+  git
+  zsh
+  fzf
+  nvim
+  ripgrep
+) 
+brew install "${apps[@]}"
 
-# Create backup dir for vim
-mkdir -p ~/.vimtemp > /dev/null
+# Oh my ZSH
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
-# Install vim plugins
-vim +PlugInstall +qall
+# Symlinks
+mkdir -p ./config
+ln -sfv ~/dotfiles/nvim ~/.config
+ln -sfv ~/dotfiles/.bashrc ~/.bashrc
+ln -sfv ~/dotfiles/.zshrc ~/.zshrc
+ln -sfv ~/dotfiles/.grimorio ~/
 
-# Git config
+# Git
 git config --global core.excludesfile ~/.gitignore_global

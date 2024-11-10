@@ -1,12 +1,4 @@
-DEFAULT_USER="txus"
-
-zle -N zle-line-init
-zle -N zle-keymap-select
 export KEYTIMEOUT=1
-export COLORTERM=truecolor
-
-zle -N zle-line-init
-zle -N zle-keymap-select
 
 # Path to your oh-my-zsh installation.
 export ZSH=~/.oh-my-zsh
@@ -14,7 +6,7 @@ export ZSH=~/.oh-my-zsh
 ZSH_THEME="minimal"
 
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(vi-mode asdf)
+plugins=(vi-mode asdf fzf)
 
 # Remove c-s command in the terminal
 stty -ixon
@@ -36,11 +28,14 @@ alias -r gsl='git stash list'
 alias -r gsp='git stash pop'
 alias -r gsd='git stash drop'
 alias -r gca='git commit --amend --no-edit'
+alias vim=nvim
 
 # Env
-export VISUAL=vim
+export VISUAL=nvim
 export EDITOR="$VISUAL"
+export FZF_BASE=/home/linuxbrew/.linuxbrew/bin/fzf
 
 # Load oh my zsh
 source $ZSH/oh-my-zsh.sh
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
