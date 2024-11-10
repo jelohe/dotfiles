@@ -43,7 +43,18 @@ else
     {'williamboman/mason.nvim', lazy = false},
     {'williamboman/mason-lspconfig.nvim', lazy = false},
     {'neovim/nvim-lspconfig'},
+    -- Tpope
     {'tpope/vim-surround'},
+    {'tpope/vim-repeat'},
+    -- Colors
     {'pgdouyon/vim-yin-yang'},
+    -- Landing{
+    {
+      "kungfusheep/randomquote.nvim",
+      event = "VimEnter",
+      config = function()
+          require("randomquote").setup()
+      end
+    },
   })
 end
