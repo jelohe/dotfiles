@@ -1,14 +1,12 @@
 export KEYTIMEOUT=1
 
-# Path to your oh-my-zsh installation.
-export ZSH=~/.oh-my-zsh
-
-ZSH_THEME="minimal"
-
 # Env
 export VISUAL=nvim
 export EDITOR="$VISUAL"
-export FZF_BASE=/home/linuxbrew/.linuxbrew/bin/fzf
+export FZF_BASE=/home/linuxbrew/.linuxbrew/opt/fzf
+export ZSH=~/.oh-my-zsh
+
+ZSH_THEME="minimal"
 
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(vi-mode asdf fzf)
