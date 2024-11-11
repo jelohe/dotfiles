@@ -5,6 +5,11 @@ export ZSH=~/.oh-my-zsh
 
 ZSH_THEME="minimal"
 
+# Env
+export VISUAL=nvim
+export EDITOR="$VISUAL"
+export FZF_BASE=/home/linuxbrew/.linuxbrew/bin/fzf
+
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(vi-mode asdf fzf)
 
@@ -29,11 +34,6 @@ alias -r gsp='git stash pop'
 alias -r gsd='git stash drop'
 alias -r gca='git commit --amend --no-edit'
 alias vim=nvim
-
-# Env
-export VISUAL=nvim
-export EDITOR="$VISUAL"
-export FZF_BASE=/home/linuxbrew/.linuxbrew/bin/fzf
 
 # Load oh my zsh
 source $ZSH/oh-my-zsh.sh
