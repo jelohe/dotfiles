@@ -1,12 +1,7 @@
--- Verifica si lazy.nvim está instalado, y si no, lo instala automáticamente de manera asincrónica
 local lazypath = vim.fn.stdpath("data") .. "/site/pack/packer/start/lazy.nvim"
-
--- Función para descargar lazy.nvim de manera asincrónica
 local function install_lazy()
-  -- Mostrar un mensaje de instalación
   vim.notify("Installing lazy.nvim...", vim.log.levels.INFO)
 
-  -- Ejecuta el comando git clone en segundo plano (asincrónico)
   vim.fn.jobstart({
     "git",
     "clone",
@@ -28,27 +23,38 @@ if not vim.loop.fs_stat(lazypath) then
   install_lazy()
 else
   require("lazy").setup({
-    -- TELESCOPE
+    -- FZF --
     {
-      'nvim-telescope/telescope.nvim', tag = '0.1.8',
-      dependencies = { 'nvim-lua/plenary.nvim' }
+      "ibhagwan/fzf-lua",
+      config = function()
+        require("fzf-lua").setup({'fzf-vim'})
+      end
     },
     -- OIL
     {
       'stevearc/oil.nvim',
-      opts = {},
-      dependencies = { { "echasnovski/mini.icons", opts = {} } },
+      config = function()
+        require("oil").setup({
+          columns = {},
+          skip_confirm_for_simple_edits = true,
+          use_default_keymaps = false,
+          keymaps = {
+            ["<CR>"] = "actions.select",
+            ["-"] = "actions.parent",
+          },
+          view_options = {
+            show_hidden = true,
+            natural_order = true
+          },
+        })
+      end
     },
-    -- Mason
-    {'williamboman/mason.nvim', lazy = false},
-    {'williamboman/mason-lspconfig.nvim', lazy = false},
-    {'neovim/nvim-lspconfig'},
     -- Tpope
     {'tpope/vim-surround'},
     {'tpope/vim-repeat'},
     -- Colors
     {'pgdouyon/vim-yin-yang'},
-    -- Landing{
+    -- Landing
     {
       "kungfusheep/randomquote.nvim",
       event = "VimEnter",

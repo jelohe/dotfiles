@@ -2,32 +2,16 @@
 vim.g.mapleader = " "
 
 -- File navigation
-local actions = require("telescope.actions")
+vim.keymap.set("n", "<c-p>", require('fzf-lua').files, { desc = "Fzf Files" })
+vim.keymap.set("n", "<leader>r", require('fzf-lua').live_grep_native, { desc = "Live Grep" })
+vim.keymap.set("n", "<leader>b", require('fzf-lua').buffers, { desc = "Fzf Buffers" })
+vim.keymap.set("n", "<leader> ", require('fzf-lua').buffers, { desc = "Fzf Buffers" })
 
-require("telescope").setup({
-  defaults = {
-    mappings = {
-      i = {
-        ["<esc>"] = actions.close,
-      },
-    },
-  },
-})
-
-local builtin = require('telescope.builtin')
-vim.keymap.set('n', '<C-p>', builtin.find_files, { desc = 'Telescope find files' })
-vim.keymap.set('n', '<leader>f', builtin.find_files, { desc = 'Telescope find files' })
-vim.keymap.set('n', '<leader>r', builtin.live_grep, { desc = 'Telescope live grep' })
-vim.keymap.set('n', '<leader>b', builtin.buffers, { desc = 'Telescope buffers' })
-vim.keymap.set('n', '<leader> ', builtin.buffers, { desc = 'Telescope buffers' })
-vim.keymap.set('n', '<leader>t', builtin.help_tags, { desc = 'Telescope help tags' })
 vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Oil file viewer" })
 vim.keymap.set("n", "<tab>", "<C-^>", { desc = "Toggle previous buffer" })
 
 -- Plugs windows
 vim.keymap.set("n", "<leader>o", "<CMD>Oil<CR>", { desc = "Oil file viewer" })
-vim.keymap.set("n", "<leader>l", ":Lazy<CR>", { desc = "Lazy plugs" })
-vim.keymap.set("n", "<leader>m", ":Mason<CR>", { desc = "Mason ls" })
 
 -- Autocomplete: Tab o C-n
 function _G.TabOrComplete()
