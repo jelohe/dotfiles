@@ -1,9 +1,8 @@
 #!/bin/bash
 
 # Clean cfg
-mkdir -p ./config
-rm -rf ~/.conf/nvim
-rm -rf ~/.grimorio
+mkdir -p ~/.config
+rm -rf ~/.config/nvim
 rm -rf ~/.oh-my-zsh
 rm ~/.bashrc
 rm ~/.zshrc
@@ -23,7 +22,3 @@ brew install "${apps[@]}"
 ln -sfv ~/dotfiles/nvim ~/.config
 ln -sfv ~/dotfiles/.bashrc ~/.bashrc
 ln -sfv ~/dotfiles/.zshrc ~/.zshrc
-ln -sfv ~/dotfiles/.grimorio ~/
-
-# Git
-git config --global core.excludesfile ~/.gitignore_global
