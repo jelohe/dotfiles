@@ -1,7 +1,7 @@
 export KEYTIMEOUT=1
 
 # Env
-export VISUAL=nvim
+export VISUAL=vim
 export EDITOR="$VISUAL"
 export FZF_BASE=/home/linuxbrew/.linuxbrew/opt/fzf
 export ZSH=~/.oh-my-zsh
@@ -31,7 +31,6 @@ alias -r gsl='git stash list'
 alias -r gsp='git stash pop'
 alias -r gsd='git stash drop'
 alias -r gca='git commit --amend --no-edit'
-alias vim=nvim
 
 # Load oh my zsh
 source $ZSH/oh-my-zsh.sh
