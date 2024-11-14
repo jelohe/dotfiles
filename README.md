@@ -1,15 +1,24 @@
 # My dotfiles
 
+## Wezterm
+Provided config `.wezterm.lua`.
+
+* WSL
+Manually copy `.wezterm.lua`:
+cp `dotfiles/.wezterm.lua /mnt/[drive]/Users/[user]`
+
+* Real Unix
+Just symlink it:
+`ln -sfv ~/dotfiles/.wezterm.lua ~/.wezterm.lua`
+
+
 ## Installing
-Provided config for WezTerm: `.wezterm.lua`, you'll have to manually move it to `/mnt/[drive]/Users/[user]` if you are on WSL.
 
-Install `vim`, `zsh` and `curl` on your system (apt, brew, etc.)
-Then, simply run `./install.sh`.
+Just run:
+`./install.sh`.
 
-## Extras (apt, brew, etc.)
-Install `fzf` (and optionally `bat` for file previews) for fuzzy finding.
-Install `ale` for realtime linting.
-```
+*For some reason zsh opens a new promp when installed. You will have to <C-c> and exit to finish the installation.*
+
 
 #### Enabling system clipboard on vim
 Ensure that running the following command on vim returns `1`:
@@ -17,4 +26,6 @@ Ensure that running the following command on vim returns `1`:
 ```sh
 :echo has('clipboard')
 ```
-If the above command returns `0` try installing another vim version, for example `vim-gtk` or `vim-gtk3`.
+If the above command returns `0` try [this solution](https://petergao.com/2023/11/24/vim-on-ubuntu-22-04-with-clipboard.html)
+
+If you **really** dont want to bother, just do `./heretic-install.sh` and go with nvim.
