@@ -3,11 +3,11 @@
 ## Wezterm
 Provided config `.wezterm.lua`.
 
-* WSL
+##### WSL
 Manually copy `.wezterm.lua`:
 cp `dotfiles/.wezterm.lua /mnt/[drive]/Users/[user]`
 
-* Real Unix
+##### Real Unix
 Just symlink it:
 `ln -sfv ~/dotfiles/.wezterm.lua ~/.wezterm.lua`
 
