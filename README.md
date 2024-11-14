@@ -17,7 +17,7 @@ Just symlink it:
 Just run:
 `./install.sh`.
 
-*For some reason zsh opens a new promp when installed. You will have to <C-c> and exit to finish the installation.*
+*For some reason zsh opens a new promp when installed. You will have to Ctrl+c out of it to finish the installation.*
 
 
 #### Enabling system clipboard on vim
