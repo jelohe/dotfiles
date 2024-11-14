@@ -69,7 +69,7 @@ set shortmess+=c
 
 " Always show the signcolumn, otherwise it would shift the text each time
 " diagnostics appear/become resolved.
-set signcolumn=yes
+set signcolumn=no
 
 " save with ctrl+s
 nnoremap <c-s> :w<CR>
@@ -192,4 +192,4 @@ function! ToggleNumbers()
     set number signcolumn=yes
   endif
 endfunction
-nnoremap <Leader>n :call ToggleNumbers()<CR>
+nnoremap <Leader>l :call ToggleNumbers()<CR>

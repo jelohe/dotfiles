@@ -18,7 +18,7 @@ brew install "${apps[@]}"
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
 # Symlinks
-ln -sfv ~/dotfiles/.vim ~/.config
-ln -sfv ~/dotfiles/.vimrc ~/.config
+ln -sfv ~/dotfiles/.vim ~/
+ln -sfv ~/dotfiles/.vimrc ~/.vimrc
 ln -sfv ~/dotfiles/.bashrc ~/.bashrc
 ln -sfv ~/dotfiles/.zshrc ~/.zshrc
