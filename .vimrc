@@ -21,9 +21,9 @@ nnoremap <Leader>Q :bufdo bd<CR>
 nnoremap <Leader>j :m +1<CR>
 nnoremap <Leader>k :m -2<CR>
 " Open .vimrc
-nnoremap <Leader>ev :tabedit $MYVIMRC<CR>
+nnoremap <Leader>ce :tabedit $MYVIMRC<CR>
 " Reload .vimrc
-nnoremap <Leader>rv :source $MYVIMRC<CR>
+nnoremap <Leader>cr :source $MYVIMRC<CR>
 
 " Lint
 nnoremap <Leader>an :ALENext<CR>
@@ -41,12 +41,6 @@ nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
-
-nnoremap <Leader>td ?\sdescribe<CR>0y%%o<Esc>o<Esc>p%a;<Esc>b%F'ci'
-nnoremap <Leader>tt ?\stest<CR>0y%%o<Esc>o<Esc>p%a;<Esc>b%F'ci'
-nnoremap <Leader>to mz?\stest<CR>ea.only<Esc>:w<CR>`z
-nnoremap <Leader>ts mz?\stest<CR>ea.skip<Esc>:w<CR>`z
-nnoremap <Leader>ta mz:%s^\<\(test\.only\\|test\.skip\)\>^test^g<CR>:w<CR>`z
 
 set directory=$HOME/.vimtemp//
 set backupcopy=yes
@@ -155,6 +149,7 @@ set tabstop=4 expandtab shiftwidth=4
 :se noesckeys
 set timeoutlen=1000 ttimeoutlen=0
 set hidden
+:set scrolloff=999
 
 " ~~~ COC ~~~
 let g:coc_global_extensions = [

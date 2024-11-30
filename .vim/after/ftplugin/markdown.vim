@@ -5,6 +5,7 @@ vnoremap <leader>gn :e ~/grimorio/<cfile><cr>
 :   let autocommands_loaded = 1
 :   augroup grimorio
 :       autocmd!
-:       autocmd BufNewFile *.sh execute 'silent! 0r ~/.plantillas/plantilla.txt'
+" :       autocmd BufNewFile *.sh execute '0r ~/grimorio/.plantillas/plantilla.txt'
+:       autocmd BufNewFile *.md 0r ~/grimorio/.plantillas/plantilla.txt 
 :   augroup END
 :endif
