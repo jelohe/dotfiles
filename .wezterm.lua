@@ -35,14 +35,17 @@ local config = wezterm.config_builder()
 -- Startup as Ubuntu on WSL
 config.default_domain = 'WSL:UbuntuD' -- $ wsl -l -v
 
+-- Disable annoying bell
+config.audible_bell = "Disabled"
+
 -- Tab bar
 config.font_size = 12
 config.use_fancy_tab_bar = true
 config.window_padding = {
-    left = 0,
-    right = 0,
-    top = 0,
-    bottom = 0,
+    left   = 18,
+    right  = 18,
+    top    = 18,
+    bottom = 18,
 }
 config.enable_scroll_bar = false
 config.window_decorations = 'RESIZE'
@@ -50,9 +53,11 @@ config.window_decorations = 'RESIZE'
 -- Pretty colors
 function scheme_for_appearance(appearance)
   if appearance:find 'Dark' then
-    return 'Grayscale Dark (base16)'
+    -- return 'Grayscale Dark (base16)'
+    return 'Neobones'
   else
-    return 'Grayscale Light (base16)'
+    -- return 'Grayscale Light (base16)'
+    return 'Neobones_light'
   end
 end
 
@@ -93,21 +98,21 @@ config.keys = {
   { mods = 'LEADER', key = 'x', action = CloseSplit },
   { mods = 'LEADER', key = 'z', action = ZoomSplit },
   -- Split nav
-  { mods = 'LEADER', key = 'h', action = Left },
-  { mods = 'LEADER', key = 'l', action = Right },
-  { mods = 'LEADER', key = 'k', action = Up },
-  { mods = 'LEADER', key = 'j', action = Down },
+  { mods = 'ALT', key = 'h', action = Left },
+  { mods = 'ALT', key = 'l', action = Right },
+  { mods = 'ALT', key = 'k', action = Up },
+  { mods = 'ALT', key = 'j', action = Down },
   -- Split resize
-  { mods = 'LEADER', key = 'H', action = PaneLeft },
-  { mods = 'LEADER', key = 'L', action = PaneRight },
-  { mods = 'LEADER', key = 'K', action = PaneUp },
-  { mods = 'LEADER', key = 'J', action = PaneDown },
+  { mods = 'ALT', key = 'H', action = PaneLeft },
+  { mods = 'ALT', key = 'L', action = PaneRight },
+  { mods = 'ALT', key = 'K', action = PaneUp },
+  { mods = 'ALT', key = 'J', action = PaneDown },
 
   -- Tabs
   { mods = 'LEADER', key = 'c', action = NewTab },
   -- Tab nav
   umap(range(1, 8), function(n) return
-      { mods = 'LEADER', key = tostring(n), action = OpenTab(n) }
+      { mods = 'ALT', key = tostring(n), action = OpenTab(n) }
   end),
 }
 

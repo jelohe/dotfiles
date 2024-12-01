@@ -80,11 +80,14 @@ endif
 call plug#begin('~/.vim/plugged')
 " Colors
 Plug 'junegunn/goyo.vim'
-Plug 'pgdouyon/vim-yin-yang'
+Plug 'junegunn/limelight.vim'
 Plug 'vimpostor/vim-lumen'
+Plug 'pgdouyon/vim-yin-yang'
+Plug 'zenbones-theme/zenbones.nvim',
 " Misc / Extended functionality
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
+Plug 'junegunn/vim-peekaboo'
 " Syntax
 Plug 'dense-analysis/ale'
 Plug 'hail2u/vim-css3-syntax'
@@ -139,9 +142,11 @@ set statusline+=\ %P "Height of the screen %
 syntax enable
 set termguicolors
 if (&background == 'dark')
-    colorscheme yin
+    " colorscheme yin
+    colorscheme neobones
 else
-    colorscheme yang
+    " colorscheme yang
+    colorscheme neobones
 endif
 
 set autoindent
@@ -178,6 +183,10 @@ let g:OmniSharp_highlighting = 0
 " ~~~ typescript jsx ~~~
 " set filetypes as typescriptreact
 autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescriptreact
+
+" ~~~ Hiperfocus mode
+autocmd! User GoyoEnter Limelight 0.8
+autocmd! User GoyoLeave Limelight!
 
 set nonumber
 function! ToggleNumbers()

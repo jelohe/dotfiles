@@ -35,11 +35,12 @@ alias -r c='clear'
 # Load oh my zsh
 source $ZSH/oh-my-zsh.sh
 
-# Remove annoying colors from `ls`
+# Pretty + useful ls
 unalias l
-alias l='\ls -al'
+alias   l='\ls  -A  --color="yes"  --group-directories-first --file-type -1'
+unalias ll
+alias   ll='\ls -la --color="none" --group-directories-first --file-type'  
 
-NEWLINE=$'\n'
-PROMPT='%F{blue}[%~]%f %F{#94253E}>%f '
+PROMPT='%F{pink}[%~]%f %F{#94253E}>%f '
 
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
