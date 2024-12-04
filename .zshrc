@@ -37,10 +37,11 @@ source $ZSH/oh-my-zsh.sh
 
 # Pretty + useful ls
 unalias l
-alias   l='\ls  -A  --color="yes"  --group-directories-first --file-type -1'
+alias   l='\ls  -A  --color="none"  --group-directories-first --file-type -1'
 unalias ll
 alias   ll='\ls -la --color="none" --group-directories-first --file-type'  
 
-PROMPT='%F{pink}[%~]%f %F{#94253E}>%f '
+NEWLINE=$'\n'
+PROMPT='${NEWLINE}%F{pink}[%~]%f %F{#94253E}>%f '
 
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
