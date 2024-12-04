@@ -84,6 +84,7 @@ Plug 'junegunn/limelight.vim'
 Plug 'vimpostor/vim-lumen'
 Plug 'pgdouyon/vim-yin-yang'
 Plug 'zenbones-theme/zenbones.nvim',
+Plug 'chriskempson/base16-vim',
 " Misc / Extended functionality
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
@@ -138,23 +139,11 @@ set statusline+=\ %= "Go to the right side
 set statusline+=[%l/%L] "line/total lines
 set statusline+=\ %P "Height of the screen %
 
-" ~~~ COLORS ~~~
-syntax enable
-set termguicolors
-if (&background == 'dark')
-    " colorscheme yin
-    colorscheme neobones
-else
-    " colorscheme yang
-    colorscheme neobones
-endif
-
 set autoindent
-set tabstop=4 expandtab shiftwidth=4
+set tabstop=2 expandtab shiftwidth=2
 :se noesckeys
 set timeoutlen=1000 ttimeoutlen=0
 set hidden
-:set scrolloff=999
 
 " ~~~ COC ~~~
 let g:coc_global_extensions = [
@@ -184,7 +173,7 @@ let g:OmniSharp_highlighting = 0
 " set filetypes as typescriptreact
 autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescriptreact
 
-" ~~~ Hiperfocus mode
+" ~~~ Hyperfocus mode
 autocmd! User GoyoEnter Limelight 0.8
 autocmd! User GoyoLeave Limelight!
 
@@ -197,3 +186,13 @@ function! ToggleNumbers()
   endif
 endfunction
 nnoremap <Leader>l :call ToggleNumbers()<CR>
+
+" ~~~ COLORS ~~~
+syntax enable
+set termguicolors
+if (&background == 'light')
+    colorscheme base16-grayscale-dark
+else
+    colorscheme base16-grayscale-light
+endif
+
