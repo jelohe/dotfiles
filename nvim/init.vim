@@ -42,11 +42,11 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
-set directory=$HOME/.vimtemp//
+set directory=~/.vimtemp/swap//
 set backupcopy=yes
-set backupdir=$HOME/.vimtemp//
+set backupdir=~/.vimtemp/backup//
 set undofile
-set undodir=$HOME/.vimtemp//
+set undodir=~/.vimtemp/undo//
 set nocompatible
 set visualbell
 set t_vb=
@@ -65,19 +65,18 @@ set shortmess+=c
 " diagnostics appear/become resolved.
 set signcolumn=no
 
-" save with ctrl+s
+" Save with ctrl+s
 nnoremap <c-s> :w<CR>
 inoremap <c-s> <Esc>:w<CR>
 
-" ~~~ Plugins ~~~
-" Install vim-plug
-if empty(glob('~/.vim/autoload/plug.vim'))
-    silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-                \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+" Install vim-plug for Neovim if not already installed
+if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
+    silent !curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
     autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
-"Initialize and pass a path where vim-plug should install plugins if necessary
-call plug#begin('~/.vim/plugged')
+
+call plug#begin('~/.local/share/nvim/plugged')
+" ~~~ PLUGINS ~~~
 " Colors
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
@@ -97,6 +96,9 @@ Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
 Plug 'OmniSharp/omnisharp-vim'
 Plug 'elixir-editors/vim-elixir'
+Plug 'Olical/conjure'
+Plug 'tpope/vim-dispatch'
+Plug 'clojure-vim/vim-jack-in'
 " Navigation
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
@@ -106,6 +108,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " All of your Plugins must be added before the following line
 call plug#end()
+
 filetype plugin indent on
 
 " ~~~ FZF ~~~
@@ -141,7 +144,6 @@ set statusline+=\ %P "Height of the screen %
 
 set autoindent
 set tabstop=2 expandtab shiftwidth=2
-:se noesckeys
 set timeoutlen=1000 ttimeoutlen=0
 set hidden
 
@@ -173,7 +175,10 @@ let g:OmniSharp_highlighting = 0
 " set filetypes as typescriptreact
 autocmd BufNewFile,BufRead *.tsx set filetype=typescriptreact
 
-" ~~~ Hyperfocus mode
+" ~~~ Disable search highlights ~~~
+:nohlsearch
+
+" ~~~ Hyperfocus mode ~~~
 autocmd! User GoyoEnter Limelight 0.8
 autocmd! User GoyoLeave Limelight!
 
@@ -190,9 +195,9 @@ nnoremap <Leader>l :call ToggleNumbers()<CR>
 " ~~~ COLORS ~~~
 syntax enable
 set termguicolors
-if (&background == 'light')
+" if (&background == 'light')
     colorscheme base16-grayscale-dark
-else
-    colorscheme base16-grayscale-light
-endif
+" else
+"     colorscheme base16-grayscale-light
+" endif
 

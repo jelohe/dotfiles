@@ -6,6 +6,10 @@ export EDITOR="$VISUAL"
 export FZF_BASE=/home/linuxbrew/.linuxbrew/opt/fzf
 export ZSH=~/.oh-my-zsh
 
+# Try to make java work :')
+export JAVA_HOME='/mnt/c/ProgramData/Oracle/Java/javapath_target_3912968/java.exe'
+alias java='java.exe'
+
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(vi-mode asdf fzf)
 
