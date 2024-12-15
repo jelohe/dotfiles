@@ -35,6 +35,7 @@ alias -r gsd='git stash drop'
 alias -r gc='git commit -m $1'
 alias -r gca='git commit --amend --no-edit'
 alias -r c='clear'
+alias -r v='nvim $1'
 
 # Load oh my zsh
 source $ZSH/oh-my-zsh.sh

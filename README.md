@@ -28,4 +28,4 @@ Ensure that running the following command on vim returns `1`:
 ```
 If the above command returns `0` try [this solution](https://petergao.com/2023/11/24/vim-on-ubuntu-22-04-with-clipboard.html)
 
-If you **really** dont want to bother, just do `./heretic-install.sh` and go with nvim.
+If you dont want to bother, just do `./nvim-install.sh`.

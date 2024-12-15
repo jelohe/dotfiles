@@ -1,8 +1,6 @@
 #!/bin/bash
 
 # Clean cfg
-mkdir -p ~/.config
-rm -rf ~/.config/nvim
 rm -rf ~/.oh-my-zsh
 rm ~/.bashrc
 rm ~/.zshrc
@@ -16,9 +14,11 @@ apps=(asdf git zsh fzf nvim ripgrep)
 brew install "${apps[@]}"
 
 # Oh my ZSH
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+
+# (min)NVIM
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/jelohe/minvim/refs/heads/main/install.sh)"
 
 # Symlinks
-ln -sfv ~/dotfiles/nvim ~/.config
 ln -sfv ~/dotfiles/.bashrc ~/.bashrc
 ln -sfv ~/dotfiles/.zshrc ~/.zshrc
