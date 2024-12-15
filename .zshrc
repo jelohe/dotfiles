@@ -47,6 +47,6 @@ unalias ll
 alias   ll='\ls -la --color="none" --group-directories-first --file-type'  
 
 NEWLINE=$'\n'
-PROMPT='${NEWLINE}%F{pink}[%~]%f %F{#94253E}>%f '
+PROMPT='${NEWLINE}%F{#90AFFA}[%~]%f %F{#E1B068}>%f '
 
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
