@@ -39,7 +39,7 @@ config.default_domain = 'WSL:UbuntuD' -- $ wsl -l -v
 config.audible_bell = "Disabled"
 
 -- Tab bar
-config.font_size = 15
+config.font_size = 12
 config.use_fancy_tab_bar = true
 config.window_padding = {
     left   = 18,
@@ -53,9 +53,9 @@ config.window_decorations = 'RESIZE'
 -- Pretty colors
 function scheme_for_appearance(appearance)
   if appearance:find 'Dark' then
-    return 'Grayscale Dark (base16)'
+    return 'tokyonight'
   else
-    return 'Grayscale Light (base16)'
+    return 'tokyonight'
   end
 end
 

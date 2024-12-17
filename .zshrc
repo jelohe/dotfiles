@@ -35,6 +35,8 @@ alias -r gsd='git stash drop'
 alias -r gc='git commit -m $1'
 alias -r gca='git commit --amend --no-edit'
 alias -r c='clear'
+alias -r v='nvim $1'
+alias -r vim='nvim $1'
 
 # Load oh my zsh
 source $ZSH/oh-my-zsh.sh
@@ -46,6 +48,6 @@ unalias ll
 alias   ll='\ls -la --color="none" --group-directories-first --file-type'  
 
 NEWLINE=$'\n'
-PROMPT='${NEWLINE}%F{pink}[%~]%f %F{#94253E}>%f '
+PROMPT='${NEWLINE}%F{#90AFFA}[%~]%f %F{#E1B068}>%f '
 
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
