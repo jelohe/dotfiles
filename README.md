@@ -1,11 +1,11 @@
-# My dotfiles
+# Dotfiles
 
 ## Wezterm
 Provided config `.wezterm.lua`.
 
 ##### WSL
 Manually copy `.wezterm.lua`:
-cp `dotfiles/.wezterm.lua /mnt/[drive]/Users/[user]`
+`cp dotfiles/.wezterm.lua /mnt/[drive]/Users/[user]`
 
 ##### Real Unix
 Just symlink it:
@@ -14,18 +14,10 @@ Just symlink it:
 
 ## Installing
 
-Just run:
 `./install.sh`.
 
 *For some reason zsh opens a new promp when installed. You will have to Ctrl+c out of it to finish the installation.*
 
 
-#### Enabling system clipboard on vim
-Ensure that running the following command on vim returns `1`:
-
-```sh
-:echo has('clipboard')
-```
-If the above command returns `0` try [this solution](https://petergao.com/2023/11/24/vim-on-ubuntu-22-04-with-clipboard.html)
-
-If you dont want to bother, just do `./nvim-install.sh`.
+## Vim
+Comes with [Minvin](https://minvim.pages.dev), a minimal modern Neovim setup.
