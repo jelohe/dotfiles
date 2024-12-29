@@ -17,7 +17,7 @@ plugins=(vi-mode asdf fzf)
 stty -ixon
 
 # Aliases
-alias -r g='cd /mnt/d/Proyectos/Grain/Assets/Scripts'
+alias -r g='cd /mnt/d/Proyectos/gd-grain/'
 alias -r grm='branch=$(git rev-parse --abbrev-ref HEAD) && git checkout main && git pull && git checkout $branch && git rebase main'
 alias -r gs='git status'
 alias -r gd='git diff'
@@ -36,7 +36,6 @@ alias -r gc='git commit -m $1'
 alias -r gca='git commit --amend --no-edit'
 alias -r c='clear'
 alias -r v='nvim $1'
-alias -r vim='nvim $1'
 
 # Load oh my zsh
 source $ZSH/oh-my-zsh.sh
