@@ -11,14 +11,14 @@ rm ~/.zshrc
 /bin/bash -c "$(echo >> /home/txus/.zshrc)"
 /bin/bash -c "$(eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)")"
 
-apps=(asdf git zsh fzf vim ripgrep) 
+apps=(asdf git zsh fzf vim ripgrep tmux)
 brew install "${apps[@]}"
 
 # Oh my ZSH
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
-# nvim
-/bin/bash -c '$(curl -fsSL https://raw.githubusercontent.com/jelohe/minvim/refs/heads/main/install.sh)'
+# Tmux TPM
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 # Symlinks
 ln -sfv ~/dotfiles/.vim ~/
