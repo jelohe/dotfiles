@@ -12,22 +12,30 @@ call plug#begin('~/.vim/plugged')
 Plug 'zenbones-theme/zenbones.nvim'
 " Languages
 Plug 'elixir-editors/vim-elixir'
+Plug 'dense-analysis/ale'
 " Navigation
+Plug 'christoomey/vim-tmux-navigator'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-vinegar'
 " Misc / Extended functionality
 Plug 'tpope/vim-sensible'
+Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 Plug 'jelohe/vim-tabcomplete'
-Plug 'jelohe/vim-minline'
 call plug#end()
 filetype plugin indent on
 " Plugins config
 let g:fzf_preview_window = []
 let g:zenbones_compat = 1
-
+let g:ale_linters_explicit = 1
+let g:ale_lint_on_text_changed = 'never'
+let g:ale_lint_on_insert_leave = 0
+let g:ale_lint_on_enter = 0
+let g:ale_lint_on_save = 1
+let g:ale_set_quickfix = 1
+let g:ale_linters = {'javascript' : ['eslint']}
 " --- 
 " --- TOGGLE NUMBERS
 " --- 
@@ -59,11 +67,6 @@ nnoremap <leader>Q :bufdo bd<cr>
 nnoremap <leader><space> :Buffers<cr>
 nnoremap <leader>f :Files<cr>
 nnoremap <leader>r :Rg 
-" Window navigation
-nnoremap <c-h> <c-w>h
-nnoremap <c-j> <c-w>j
-nnoremap <c-k> <c-w>k
-nnoremap <c-l> <c-w>l
 " Quality of life
 nnoremap <Enter> :
 nnoremap <c-s> :w<cr>
@@ -82,14 +85,21 @@ let &clipboard = has('unnamedplus') ? 'unnamedplus' : 'unnamed'
 " --- COLORS
 " ---
 syntax enable
-set termguicolors
+if exists('+termguicolors')
+  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+  set termguicolors
+endif
 set background=dark
 colorscheme tokyobones
+set term=xterm-256color
 
 " ---
 " --- STATUSLINE
 " ---
 set laststatus=2
+set statusline=\ %m\ %f
+
 
 " ---
 " --- OPTIONS
@@ -97,6 +107,7 @@ set laststatus=2
 setlocal shiftwidth=4
 setlocal softtabstop=4
 setlocal expandtab
+setlocal hidden " Allow buffer navigation with pending changes
 
 " ---
 " --- TEMP FILES
