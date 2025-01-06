@@ -37,14 +37,15 @@ let g:ale_lint_on_save = 1
 let g:ale_set_quickfix = 1
 let g:ale_linters = {'javascript' : ['eslint']}
 " --- 
-" --- TOGGLE NUMBERS
+" --- FOCUS MODE
 " --- 
-set number signcolumn=no
 function! ToggleNumbers()
   if &number
     set nonumber signcolumn=no
+    set laststatus=0
   else
     set number signcolumn=no
+    set laststatus=2
   endif
 endfunction
 
@@ -95,19 +96,15 @@ colorscheme tokyobones
 set term=xterm-256color
 
 " ---
-" --- STATUSLINE
-" ---
-set laststatus=2
-set statusline=\ %m\ %f
-
-
-" ---
 " --- OPTIONS
 " ---
-setlocal shiftwidth=4
-setlocal softtabstop=4
-setlocal expandtab
+setlocal shiftwidth=2
+setlocal softtabstop=2
+setlocal expandtab " Default 2 spaces, no tabs
 setlocal hidden " Allow buffer navigation with pending changes
+set nonumber signcolumn=no
+set laststatus=0
+" set statusline=\ %m\ %f
 
 " ---
 " --- TEMP FILES

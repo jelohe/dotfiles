@@ -24,3 +24,4 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 ln -sfv ~/dotfiles/.vim ~/
 ln -sfv ~/dotfiles/.vimrc ~/.vimrc
 ln -sfv ~/dotfiles/.zshrc ~/.zshrc
+ln -sfv ~/dotfiles/.tmux.conf ~/.tmux.conf
