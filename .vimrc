@@ -84,14 +84,11 @@ let &clipboard = has('unnamedplus') ? 'unnamedplus' : 'unnamed'
 " --- COLORS
 " ---
 syntax enable
-if exists('+termguicolors')
-  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-  set termguicolors
-endif
 set background=dark
 colorscheme quiet
 set term=xterm-256color
+" transparent bg
+hi Normal guibg=NONE ctermbg=NONE
 
 " ---
 " --- OPTIONS
