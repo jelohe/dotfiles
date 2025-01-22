@@ -17,7 +17,7 @@ plugins=(vi-mode asdf fzf)
 stty -ixon
 
 # Aliases
-alias -r g='cd /mnt/d/Proyectos/gd-grain/'
+alias -r g='cd /mnt/d/Proyectos/Grain/Assets/Scripts'
 alias -r grm='branch=$(git rev-parse --abbrev-ref HEAD) && git checkout main && git pull && git checkout $branch && git rebase main'
 alias -r gs='git status'
 alias -r gd='git diff'
@@ -42,11 +42,11 @@ source $ZSH/oh-my-zsh.sh
 
 # Pretty + useful ls
 unalias l
-alias   l='\ls  -A  --color="none"  --group-directories-first --file-type -1'
+alias   l='\ls  -A  --color="none"  --group-directories-first'
 unalias ll
 alias   ll='\ls -la --color="none" --group-directories-first --file-type'  
 
 NEWLINE=$'\n'
-PROMPT='${NEWLINE}%F{#90AFFA}[%~]%f %F{#E1B068}>%f '
+PROMPT='${NEWLINE}[%~]%f${NEWLINE}%F{#ff55aa}$%F{#2299bb}>%f '
 
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"

@@ -8,8 +8,6 @@ if empty(glob('~/.vim/autoload/plug.vim'))
     autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 call plug#begin('~/.vim/plugged')
-" Colors
-Plug 'zenbones-theme/zenbones.nvim'
 " Languages
 Plug 'elixir-editors/vim-elixir'
 Plug 'dense-analysis/ale'
@@ -92,7 +90,7 @@ if exists('+termguicolors')
   set termguicolors
 endif
 set background=dark
-colorscheme tokyobones
+colorscheme quiet
 set term=xterm-256color
 
 " ---
