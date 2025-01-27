@@ -22,6 +22,7 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 Plug 'jelohe/vim-tabcomplete'
+Plug 'karoliskoncevicius/vim-sendtowindow'
 call plug#end()
 filetype plugin indent on
 " Plugins config
@@ -55,8 +56,9 @@ let mapleader="\<space>"
 vnoremap J :m '>+1<cr>gv
 vnoremap K :m '<-2<cr>gv
 nnoremap <tab> <c-^>
-nnoremap <leader>j :m +1<cr>
-nnoremap <leader>k :m -2<cr>
+" override by sendtowindow
+" nnoremap <leader>j :m +1<cr>
+" nnoremap <leader>k :m -2<cr>
 " Config management
 nnoremap <leader>ce :tabedit $MYVIMRC<cr>
 nnoremap <leader>cs :source $MYVIMRC<cr>
@@ -85,7 +87,8 @@ let &clipboard = has('unnamedplus') ? 'unnamedplus' : 'unnamed'
 " ---
 syntax enable
 set background=dark
-colorscheme quiet
+" colorscheme quiet
+colorscheme lunaperche
 set term=xterm-256color
 " transparent bg
 hi Normal guibg=NONE ctermbg=NONE
@@ -115,3 +118,20 @@ set directory=$HOME/.vim/temp/swap/
 set updatecount=100
 set undofile
 set undodir=$HOME/.vim/temp/undo/
+
+" REPL
+
+function! OpenNodeInSplit()
+  terminal node
+  wincmd p
+endfunction
+
+function! SendLine()
+  :let @p = getline('.')
+  wincmd k
+  call feedkeys(@p . "\r", 'n')
+  call timer_start(0, {-> execute("wincmd p")})
+endfunction
+
+nnoremap <leader>n :call OpenNodeInSplit()<CR>
+nnoremap <leader>. :call SendLine()<CR>
