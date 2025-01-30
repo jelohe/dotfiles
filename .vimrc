@@ -88,7 +88,7 @@ let &clipboard = has('unnamedplus') ? 'unnamedplus' : 'unnamed'
 syntax enable
 set background=dark
 " colorscheme quiet
-colorscheme lunaperche
+colorscheme habamax
 set term=xterm-256color
 " transparent bg
 hi Normal guibg=NONE ctermbg=NONE
@@ -96,10 +96,10 @@ hi Normal guibg=NONE ctermbg=NONE
 " ---
 " --- OPTIONS
 " ---
-setlocal shiftwidth=2
-setlocal softtabstop=2
-setlocal expandtab " Default 2 spaces, no tabs
-setlocal hidden " Allow buffer navigation with pending changes
+set shiftwidth=4
+set softtabstop=4
+set expandtab " Default 4 spaces, no tabs
+set hidden " Allow buffer navigation with pending changes
 set nonumber signcolumn=no
 set laststatus=0
 " set statusline=\ %m\ %f
