@@ -2,13 +2,13 @@
 
 # Clean cfg
 mkdir -p ~/.vim
-rm -rf ~/.oh-my-zsh
-rm ~/.bashrc
-rm ~/.zshrc
+rm -rf -p ~/.oh-my-zsh
+rm -p ~/.bashrc
+rm -p ~/.zshrc
 
 # Homebrew
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-/bin/bash -c "$(echo >> /home/txus/.zshrc)"
+/bin/bash -c "$(echo >> ~/.zshrc)"
 /bin/bash -c "$(eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)")"
 
 apps=(asdf git zsh fzf vim ripgrep tmux)

@@ -8,6 +8,8 @@ if empty(glob('~/.vim/autoload/plug.vim'))
     autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 call plug#begin('~/.vim/plugged')
+" Colors
+Plug 'catppuccin/vim', { 'as': 'catppuccin' }
 " Languages
 Plug 'elixir-editors/vim-elixir'
 Plug 'dense-analysis/ale'
@@ -86,10 +88,10 @@ let &clipboard = has('unnamedplus') ? 'unnamedplus' : 'unnamed'
 " --- COLORS
 " ---
 syntax enable
-set background=dark
-" colorscheme quiet
-colorscheme habamax
+set termguicolors
 set term=xterm-256color
+set background=dark
+colorscheme catppuccin_macchiato
 " transparent bg
 hi Normal guibg=NONE ctermbg=NONE
 
