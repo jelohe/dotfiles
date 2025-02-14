@@ -24,7 +24,7 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 Plug 'jelohe/vim-tabcomplete'
-Plug 'karoliskoncevicius/vim-sendtowindow'
+" Plug 'karoliskoncevicius/vim-sendtowindow'
 call plug#end()
 filetype plugin indent on
 " Plugins config
@@ -58,9 +58,8 @@ let mapleader="\<space>"
 vnoremap J :m '>+1<cr>gv
 vnoremap K :m '<-2<cr>gv
 nnoremap <tab> <c-^>
-" override by sendtowindow
-" nnoremap <leader>j :m +1<cr>
-" nnoremap <leader>k :m -2<cr>
+nnoremap <leader>j :m +1<cr>
+nnoremap <leader>k :m -2<cr>
 " Config management
 nnoremap <leader>ce :tabedit $MYVIMRC<cr>
 nnoremap <leader>cs :source $MYVIMRC<cr>
@@ -91,7 +90,7 @@ syntax enable
 set termguicolors
 set term=xterm-256color
 set background=dark
-colorscheme catppuccin_macchiato
+colorscheme catppuccin_frappe
 " transparent bg
 hi Normal guibg=NONE ctermbg=NONE
 
@@ -103,7 +102,7 @@ set softtabstop=4
 set expandtab " Default 4 spaces, no tabs
 set hidden " Allow buffer navigation with pending changes
 set nonumber signcolumn=no
-set laststatus=0
+set laststatus=0 " Who needs statusline
 " set statusline=\ %m\ %f
 
 " ---
@@ -120,20 +119,3 @@ set directory=$HOME/.vim/temp/swap/
 set updatecount=100
 set undofile
 set undodir=$HOME/.vim/temp/undo/
-
-" REPL
-
-function! OpenNodeInSplit()
-  terminal node
-  wincmd p
-endfunction
-
-function! SendLine()
-  :let @p = getline('.')
-  wincmd k
-  call feedkeys(@p . "\r", 'n')
-  call timer_start(0, {-> execute("wincmd p")})
-endfunction
-
-nnoremap <leader>n :call OpenNodeInSplit()<CR>
-nnoremap <leader>. :call SendLine()<CR>

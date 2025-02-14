@@ -3,12 +3,7 @@ export KEYTIMEOUT=1
 # Env
 export VISUAL=vim
 export EDITOR="$VISUAL"
-export FZF_BASE=/home/linuxbrew/.linuxbrew/opt/fzf
 export ZSH=~/.oh-my-zsh
-
-# Try to make java work :')
-export JAVA_HOME='/mnt/c/ProgramData/Oracle/Java/javapath_target_3912968/java.exe'
-alias java='java.exe'
 
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(vi-mode asdf fzf)
@@ -48,5 +43,6 @@ alias   ll='\ls -la --color="none" --group-directories-first --file-type'
 
 NEWLINE=$'\n'
 PROMPT='${NEWLINE}[%~]%f${NEWLINE}%F{#ff55aa}$%F{#2299bb}>%f '
-
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init - zsh)"

@@ -1,0 +1,25 @@
+general.import = [
+    "~/.config/alacritty/catppuccin-frappe.toml",
+    # "~/.config/alacritty/catppuccin-macchiato.toml",
+]
+
+window.opacity = 0.8
+
+[env]
+TERM = "xterm-256color"
+
+[font]
+size = 16.0
+
+[font.normal]
+family = "iosevka"
+style = "Regular"
+[font.bold]
+family = "iosevka"
+style = "Regular"
+[font.bold_italic]
+family = "iosevka"
+style = "Regular"
+[font.italic]
+family = "iosevka"
+style = "Italic"

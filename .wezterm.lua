@@ -13,6 +13,7 @@ config.audible_bell = "Disabled"
 -- Tab bar
 config.font_size = 14
 config.enable_tab_bar = false
+config.use_fancy_tab_bar = false
 config.window_padding = {
     left   = 18,
     right  = 18,
@@ -21,9 +22,9 @@ config.window_padding = {
 }
 config.enable_scroll_bar = false
 config.window_decorations = 'NONE'
-config.window_background_opacity = 0.85
+config.window_background_opacity = .9
 
-config.color_scheme = 'Catppuccin Macchiato'
-config.font = wezterm.font 'Consolas'
+config.color_scheme = 'Catppuccin Frappe'
+config.font = wezterm.font 'JetBrains Mono'
 
 return config
