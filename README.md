@@ -1,23 +1,32 @@
 # Dotfiles
 
-## Wezterm
-Provided config `.wezterm.lua`.
+## Install dependencies
 
-##### WSL
-Manually copy `.wezterm.lua`:
-`cp dotfiles/.wezterm.lua /mnt/[drive]/Users/[user]`
+* Install Alacritty
 
-##### Real Unix
-Just symlink it:
-`ln -sfv ~/dotfiles/.wezterm.lua ~/.wezterm.lua`
+* Make sure you have installed `vim`, `fzf`, `ripgrep`, `zsh` and `tmux` on your machine.
 
 
-## Installing
+## Install dotfiles
 
-`./install.sh`.
+Clone this repo in your home directory.
 
-*For some reason zsh opens a new promp when installed. You will have to Ctrl+c out of it to finish the installation.*
+`cd ~/dotfiles`
+`./install.sh`
+
+*For some reason Oh My Zsh opens a new promp when installed. You will have to Ctrl+c out of it to finish the installation.*
 
 
-## Vim
-Comes with [Minvin](https://minvim.pages.dev), a minimal modern Neovim setup.
+## Setting up the plugins
+
+#### tmux
+
+Open a tmux session and `<c-a> I` to install tmux plugins.
+
+
+#### vim
+
+Open vim and type `:PlugInstall`.
+
+
+## Go Code

@@ -24,7 +24,6 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 Plug 'jelohe/vim-tabcomplete'
-" Plug 'karoliskoncevicius/vim-sendtowindow'
 call plug#end()
 filetype plugin indent on
 " Plugins config
@@ -37,8 +36,9 @@ let g:ale_lint_on_enter = 0
 let g:ale_lint_on_save = 1
 let g:ale_set_quickfix = 1
 let g:ale_linters = {'javascript' : ['eslint']}
+
 " --- 
-" --- FOCUS MODE
+" --- PAIRING MODE
 " --- 
 function! ToggleNumbers()
   if &number
@@ -49,6 +49,7 @@ function! ToggleNumbers()
     set laststatus=2
   endif
 endfunction
+nnoremap <leader>l :call ToggleNumbers()<cr>
 
 " --- 
 " --- MAPPINGS
@@ -57,13 +58,13 @@ let mapleader="\<space>"
 " Moving lines
 vnoremap J :m '>+1<cr>gv
 vnoremap K :m '<-2<cr>gv
-nnoremap <tab> <c-^>
 nnoremap <leader>j :m +1<cr>
 nnoremap <leader>k :m -2<cr>
 " Config management
 nnoremap <leader>ce :tabedit $MYVIMRC<cr>
 nnoremap <leader>cs :source $MYVIMRC<cr>
 " Buffers
+nnoremap <tab> <c-^>
 nnoremap <leader>q :bdelete<cr>
 nnoremap <leader>Q :bufdo bd<cr>
 nnoremap <leader><space> :Buffers<cr>
@@ -75,7 +76,6 @@ nnoremap <c-s> :w<cr>
 inoremap <c-s> <esc>:w<cr>
 nnoremap <leader>cf :let @+ = expand("%")<cr>
 nnoremap <leader>cF :let @+ = expand("%")<cr>
-nnoremap <leader>l :call ToggleNumbers()<cr>
 
 " ---
 " --- CLIPBOARD

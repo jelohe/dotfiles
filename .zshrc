@@ -6,13 +6,12 @@ export EDITOR="$VISUAL"
 export ZSH=~/.oh-my-zsh
 
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(vi-mode asdf fzf)
+plugins=(vi-mode fzf)
 
 # Remove c-s command in the terminal
 stty -ixon
 
-# Aliases
-alias -r g='cd /mnt/d/Proyectos/Grain/Assets/Scripts'
+# Git magic
 alias -r grm='branch=$(git rev-parse --abbrev-ref HEAD) && git checkout main && git pull && git checkout $branch && git rebase main'
 alias -r gs='git status'
 alias -r gd='git diff'
@@ -29,20 +28,17 @@ alias -r gsp='git stash pop'
 alias -r gsd='git stash drop'
 alias -r gc='git commit -m $1'
 alias -r gca='git commit --amend --no-edit'
-alias -r c='clear'
-alias -r v='nvim $1'
 
 # Load oh my zsh
 source $ZSH/oh-my-zsh.sh
 
-# Pretty + useful ls
+# Quality of life aliases
+alias -r c='clear'
+alias -r v='vim $1'
 unalias l
-alias   l='\ls  -A  --color="none"  --group-directories-first'
+alias   l='\ls  -A  --color --group-directories-first'
 unalias ll
-alias   ll='\ls -la --color="none" --group-directories-first --file-type'  
+alias   ll='\ls -la --color --group-directories-first --file-type'
 
 NEWLINE=$'\n'
 PROMPT='${NEWLINE}[%~]%f${NEWLINE}%F{#ff55aa}$%F{#2299bb}>%f '
-export PYENV_ROOT="$HOME/.pyenv"
-[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init - zsh)"
