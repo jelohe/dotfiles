@@ -24,6 +24,8 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 Plug 'jelohe/vim-tabcomplete'
+" Music is fun
+Plug 'lilyinstarlight/vim-sonic-pi'
 call plug#end()
 filetype plugin indent on
 " Plugins config
@@ -69,19 +71,32 @@ nnoremap <leader>q :bdelete<cr>
 nnoremap <leader>Q :bufdo bd<cr>
 nnoremap <leader><space> :Buffers<cr>
 nnoremap <leader>f :Files<cr>
-nnoremap <leader>r :Rg 
+nnoremap <leader>g :Rg 
 " Quality of life
 nnoremap <Enter> :
 nnoremap <c-s> :w<cr>
 inoremap <c-s> <esc>:w<cr>
 nnoremap <leader>cf :let @+ = expand("%")<cr>
 nnoremap <leader>cF :let @+ = expand("%")<cr>
+" Music
+nnoremap <leader>r :SonicPiEval<cr>
+nnoremap <leader>s :SonicPiStop<cr>
 
 " ---
 " --- CLIPBOARD
 " ---
 exe 'ino <script> <C-V>' paste#paste_cmd['i']
 let &clipboard = has('unnamedplus') ? 'unnamedplus' : 'unnamed'
+
+" ---
+" --- OPTIONS
+" ---
+set shiftwidth=4
+set softtabstop=4
+set expandtab " Default 4 spaces, no tabs
+set hidden " Allow buffer navigation with pending changes
+set nonumber signcolumn=no
+set laststatus=0 " Who needs statusline
 
 " ---
 " --- COLORS
@@ -93,17 +108,6 @@ set background=dark
 colorscheme catppuccin_frappe
 " transparent bg
 hi Normal guibg=NONE ctermbg=NONE
-
-" ---
-" --- OPTIONS
-" ---
-set shiftwidth=4
-set softtabstop=4
-set expandtab " Default 4 spaces, no tabs
-set hidden " Allow buffer navigation with pending changes
-set nonumber signcolumn=no
-set laststatus=0 " Who needs statusline
-" set statusline=\ %m\ %f
 
 " ---
 " --- TEMP FILES
