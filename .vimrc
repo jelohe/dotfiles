@@ -1,3 +1,4 @@
+let mapleader="\<space>"
 " --- 
 " --- PLUGINS
 " --- 
@@ -24,20 +25,19 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 Plug 'jelohe/vim-tabcomplete'
-" Music is fun
-Plug 'lilyinstarlight/vim-sonic-pi'
+Plug 'junegunn/goyo.vim'
 call plug#end()
 filetype plugin indent on
 " Plugins config
 let g:fzf_preview_window = []
 let g:zenbones_compat = 1
-let g:ale_linters_explicit = 1
-let g:ale_lint_on_text_changed = 'never'
-let g:ale_lint_on_insert_leave = 0
-let g:ale_lint_on_enter = 0
-let g:ale_lint_on_save = 1
+" let g:ale_linters_explicit = 1
+" let g:ale_lint_on_text_changed = 'never'
+" let g:ale_lint_on_insert_leave = 0
+" let g:ale_lint_on_enter = 0
+" let g:ale_lint_on_save = 1
 let g:ale_set_quickfix = 1
-let g:ale_linters = {'javascript' : ['eslint']}
+nnoremap <leader>an :ALENext<cr>
 
 " --- 
 " --- PAIRING MODE
@@ -45,7 +45,7 @@ let g:ale_linters = {'javascript' : ['eslint']}
 function! ToggleNumbers()
   if &number
     set nonumber signcolumn=no
-    set laststatus=0
+    set laststatus=1
   else
     set number signcolumn=no
     set laststatus=2
@@ -56,7 +56,6 @@ nnoremap <leader>l :call ToggleNumbers()<cr>
 " --- 
 " --- MAPPINGS
 " --- 
-let mapleader="\<space>"
 " Moving lines
 vnoremap J :m '>+1<cr>gv
 vnoremap K :m '<-2<cr>gv
@@ -78,9 +77,6 @@ nnoremap <c-s> :w<cr>
 inoremap <c-s> <esc>:w<cr>
 nnoremap <leader>cf :let @+ = expand("%")<cr>
 nnoremap <leader>cF :let @+ = expand("%")<cr>
-" Music
-nnoremap <leader>r :SonicPiEval<cr>
-nnoremap <leader>s :SonicPiStop<cr>
 
 " ---
 " --- CLIPBOARD
@@ -96,7 +92,7 @@ set softtabstop=4
 set expandtab " Default 4 spaces, no tabs
 set hidden " Allow buffer navigation with pending changes
 set nonumber signcolumn=no
-set laststatus=0 " Who needs statusline
+set laststatus=1 " Who needs statusline
 
 " ---
 " --- COLORS
