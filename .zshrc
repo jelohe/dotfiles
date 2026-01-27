@@ -7,7 +7,7 @@ export EDITOR="$VISUAL"
 export ZSH=~/.oh-my-zsh
 
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(vi-mode fzf)
+plugins=(vi-mode fzf tmux)
 
 # Remove c-s command in the terminal
 stty -ixon
@@ -29,6 +29,9 @@ alias -r gsp='git stash pop'
 alias -r gsd='git stash drop'
 alias -r gc='git commit -m $1'
 alias -r gca='git commit --amend --no-edit'
+
+# Open tmux by default
+ZSH_TMUX_AUTOSTART=true
 
 # Load oh my zsh
 source $ZSH/oh-my-zsh.sh

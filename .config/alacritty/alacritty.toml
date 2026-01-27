@@ -1,11 +1,10 @@
 general.import = [
-    "~/.config/alacritty/catppuccin-frappe.toml",
-    # "~/.config/alacritty/catppuccin-macchiato.toml",
+    "~/.config/alacritty/tokyobones_dark.toml",
 ]
 
 window.decorations = "None"
-window.opacity = 0.9
-# window.opacity = 1
+window.opacity = 1
+window.padding = { x = 20, y = 0 }
 
 [env]
 TERM = "xterm-256color"

@@ -10,7 +10,7 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 endif
 call plug#begin('~/.vim/plugged')
 " Colors
-Plug 'catppuccin/vim', { 'as': 'catppuccin' }
+Plug 'zenbones-theme/zenbones.nvim'
 " Languages
 Plug 'elixir-editors/vim-elixir'
 Plug 'dense-analysis/ale'
@@ -44,11 +44,13 @@ nnoremap <leader>an :ALENext<cr>
 " --- 
 function! ToggleNumbers()
   if &number
-    set nonumber signcolumn=no
-    set laststatus=1
+    " set nonumber signcolumn=no
+    " set laststatus=1
+    :Goyo
   else
-    set number signcolumn=no
-    set laststatus=2
+    " set number signcolumn=no
+    " set laststatus=2
+    :Goyo
   endif
 endfunction
 nnoremap <leader>l :call ToggleNumbers()<cr>
@@ -92,7 +94,7 @@ set softtabstop=4
 set expandtab " Default 4 spaces, no tabs
 set hidden " Allow buffer navigation with pending changes
 set nonumber signcolumn=no
-set laststatus=1 " Who needs statusline
+set laststatus=2 " Who needs statusline
 
 " ---
 " --- COLORS
@@ -101,9 +103,9 @@ syntax enable
 set termguicolors
 set term=xterm-256color
 set background=dark
-colorscheme catppuccin_frappe
+colorscheme tokyobones
 " transparent bg
-hi Normal guibg=NONE ctermbg=NONE
+" hi Normal guibg=NONE ctermbg=NONE
 
 " ---
 " --- TEMP FILES
