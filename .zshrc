@@ -1,5 +1,4 @@
 export KEYTIMEOUT=1
-export PATH="$PATH:/home/jelohe/.local/share/gem/ruby/3.3.0/bin"
 
 # Env
 export VISUAL=vim
@@ -46,5 +45,4 @@ alias   ll='\ls -la --color --group-directories-first --file-type'
 
 NEWLINE=$'\n'
 PROMPT='${NEWLINE}[%~]%f${NEWLINE}%F{#ff55aa}$%F{#2299bb}>%f '
-export PATH="/home/jelohe/.config/herd-lite/bin:$PATH"
-export PHP_INI_SCAN_DIR="/home/jelohe/.config/herd-lite/bin:$PHP_INI_SCAN_DIR"
+

@@ -31,12 +31,19 @@ filetype plugin indent on
 " Plugins config
 let g:fzf_preview_window = []
 let g:zenbones_compat = 1
-" let g:ale_linters_explicit = 1
+let g:ale_linters_explicit = 0
 " let g:ale_lint_on_text_changed = 'never'
 " let g:ale_lint_on_insert_leave = 0
 " let g:ale_lint_on_enter = 0
-" let g:ale_lint_on_save = 1
+let g:ale_lint_on_save = 1
+let g:ale_elixir_elixir_ls_release = "/usr/lib/elixir-ls/"
+let g:ale_linters = {
+\   'elixir': ['elixir_ls'],
+\}
+let g:ale_completion_enabled = 1
+let g:ale_lsp_show_message_severity = "error"
 let g:ale_set_quickfix = 1
+nnoremap K :ALEHover<CR>
 nnoremap <leader>an :ALENext<cr>
 
 " --- 
@@ -44,13 +51,11 @@ nnoremap <leader>an :ALENext<cr>
 " --- 
 function! ToggleNumbers()
   if &number
-    " set nonumber signcolumn=no
-    " set laststatus=1
-    :Goyo
+    set laststatus=0
+    set nonumber signcolumn=no
   else
-    " set number signcolumn=no
-    " set laststatus=2
-    :Goyo
+    set laststatus=2
+    set number signcolumn=no
   endif
 endfunction
 nnoremap <leader>l :call ToggleNumbers()<cr>
@@ -94,7 +99,7 @@ set softtabstop=4
 set expandtab " Default 4 spaces, no tabs
 set hidden " Allow buffer navigation with pending changes
 set nonumber signcolumn=no
-set laststatus=2 " Who needs statusline
+set laststatus=0 " Who needs statusline
 
 " ---
 " --- COLORS
